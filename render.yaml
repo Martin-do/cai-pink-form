@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: cai-pink-form
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate
+    startCommand: gunicorn config.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cai-pink-form-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: PYTHON_VERSION
+        value: 3.12.8
+
+databases:
+  - name: cai-pink-form-db
+    plan: free
+    region: frankfurt
+    databaseName: cai_pink_form
+    user: cai_pink_form

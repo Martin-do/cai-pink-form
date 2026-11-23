@@ -14,9 +14,14 @@ def env_bool(name, default=False):
 
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-insecure-change-me")
-DEBUG = env_bool("DEBUG", True)
+DEBUG = env_bool("DEBUG", not bool(os.environ.get("RENDER")))
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME", "")
 ALLOWED_HOSTS = [h for h in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if h]
+if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 CSRF_TRUSTED_ORIGINS = [o for o in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if o]
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -119,7 +124,7 @@ if not DEBUG:
 # ---- Portal configuration ----
 DIOCESE_NAME = os.environ.get("DIOCESE_NAME", "Catholic Archdiocese of Ibadan")
 CURRENCY_SYMBOL = "₦"
-SITE_URL = os.environ.get("SITE_URL", "http://127.0.0.1:8000")
+SITE_URL = os.environ.get("SITE_URL", f"https://{RENDER_EXTERNAL_HOSTNAME}" if RENDER_EXTERNAL_HOSTNAME else "http://127.0.0.1:8000")
 # Reminder schedule (days relative to the due date)
 REMINDER_DAYS_BEFORE = [14, 3]
 REMINDER_ON_DUE_DATE = True
@@ -127,3 +132,5 @@ REMINDER_OVERDUE_EVERY_DAYS = 7
 # Days after quarter end when the return is due (used when auto-creating periods)
 DEFAULT_DAYS_TO_SUBMIT = 30
 DEFAULT_LEVY_RATE = "0.25"
+
+
