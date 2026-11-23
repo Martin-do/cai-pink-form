@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block page_kicker %}Priest Portal{% endblock %}
+{% block page_title %}My Parishes{% endblock %}
+
+{% block content %}
+<div class="hero-banner" style="background-image:url('{% static 'img/chancery-banner.png' %}')">
+  <div class="hero-banner-inner">
+    <div>
+      <h1>Welcome, {{ user_display_name }}</h1>
+      <p>You have access only to parishes where you hold an active assignment. Complete your monthly figures and submit quarterly returns before each deadline.</p>
+    </div>
+    <div class="hero-pills" style="margin-top:0">
+      <span class="hero-pill">{{ cards|length }} Active Parish{{ cards|length|pluralize:"es" }}</span>
+      <span class="hero-pill">{{ today|date:"j F Y" }}</span>
+    </div>
+  </div>
+</div>
+
+{% if not cards %}
+  <div class="panel panel-accent">
+    <div class="panel-body">
+      <h2>No active parish assignment</h2>
+      <p class="muted" style="margin:.35rem 0 0">You do not currently have an active parish assignment. If you have recently been transferred, please ask the Chancery Office to update your assignment.</p>
+    </div>
+  </div>
+{% endif %}
+
+{% for c in cards %}
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div class="entity-cell">
+      <span class="monogram" style="width:38px;height:38px;font-size:13px">{{ c.parish.name|slice:":2"|upper }}</span>
+      <div>
+        <h2>{{ c.parish.name }}</h2>
+        <div class="small muted">{{ c.parish.deanery }} &middot; <strong>{{ c.assignment.get_role_display }}</strong> (since {{ c.assignment.start_date|date:"j M Y" }})</div>
+      </div>
+    </div>
+    <a class="btn btn-sm" href="{% url 'parish_history' c.parish.pk %}">All parish returns</a>
+  </div>
+
+  <div class="panel-body">
+    <h3 style="margin-bottom:.65rem">Open Reporting Periods</h3>
+    {% if c.open_rows %}
+    <div class="table-scroll" style="margin-bottom:1.25rem">
+      <table>
+        <thead>
+          <tr>
+            <th>Period</th>
+            <th>Due date</th>
+            <th>Status</th>
+            <th class="num">Income ({{ CURRENCY }})</th>
+            <th class="num">Expenditure ({{ CURRENCY }})</th>
+            <th class="num">Cathedraticum ({{ CURRENCY }})</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in c.open_rows %}
+          <tr>
+            <td><strong>{{ row.period.label }}</strong></td>
+            <td>
+              {{ row.period.due_date|date:"j M Y" }}
+              {% if row.period.is_overdue and not row.ret.is_filed %}
+                <span class="badge badge-overdue" style="margin-left:.35rem">Overdue</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if row.ret %}
+                <span class="badge badge-{{ row.ret.status }}">{{ row.ret.get_status_display }}</span>
+              {% else %}
+                <span class="badge badge-not_started">Not started</span>
+              {% endif %}
+            </td>
+            <td class="num">{% if row.ret %}{{ row.ret.total_income|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+            <td class="num">{% if row.ret %}{{ row.ret.total_expenditure|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+            <td class="num">{% if row.ret %}{{ row.ret.net_levy|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+            <td class="num">
+              {% if row.ret and row.ret.is_filed %}
+                <a class="btn btn-soft btn-sm" href="{% url 'return_detail' row.ret.pk %}">View</a>
+              {% else %}
+                <a class="btn btn-primary btn-sm" href="{% url 'return_edit' c.parish.pk row.period.pk %}" data-loading-link data-loading-text="Opening...">
+                  {% if row.ret %}Continue draft{% else %}Start return{% endif %}
+                </a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p class="muted small" style="margin-bottom:1rem">No open reporting periods right now.</p>
+    {% endif %}
+
+    {% if c.history %}
+    <h3 style="margin-bottom:.65rem">Recent Returns</h3>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Period</th><th>Status</th><th class="num">Surplus / (Deficit)</th><th class="num">Net Cathedraticum</th><th class="num">Outstanding</th><th></th></tr>
+        </thead>
+        <tbody>
+          {% for r in c.history|slice:":6" %}
+          <tr>
+            <td><strong>{{ r.period.label }}</strong></td>
+            <td><span class="badge badge-{{ r.status }}">{{ r.get_status_display }}</span></td>
+            <td class="num">{{ r.surplus|floatformat:2|intcomma }}</td>
+            <td class="num">{{ r.net_levy|floatformat:2|intcomma }}</td>
+            <td class="num"><strong>{{ r.levy_outstanding|floatformat:2|intcomma }}</strong></td>
+            <td class="num"><a class="btn btn-sm" href="{% url 'return_detail' r.pk %}">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

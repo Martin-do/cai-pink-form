@@ -1,0 +1,13 @@
+Dear Father,
+
+{% if kind == "overdue" or days < 0 %}This is a reminder that the {{ period.label }} quarterly return for {{ parish.name }} is now OVERDUE (it was due on {{ period.due_date|date:"j F Y" }}).{% elif kind == "due_today" %}The {{ period.label }} quarterly return for {{ parish.name }} is due TODAY ({{ period.due_date|date:"j F Y" }}).{% else %}The {{ period.label }} quarterly return for {{ parish.name }} is due on {{ period.due_date|date:"j F Y" }} ({{ days }} day{{ days|pluralize }} from today).{% endif %}
+
+Please log in to the Parish Returns Portal to complete and submit it:
+{{ site_url }}
+
+Kindly note that once a return is submitted it is locked and can only be reopened by the Chancery.
+
+God bless you.
+
+Chancery Office
+{{ diocese }}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block page_kicker %}Chancery Overview{% endblock %}
+{% block page_title %}Annual Parish Financial Summary ({{ year }}){% endblock %}
+
+{% block content %}
+<form method="get" class="filter-bar">
+  <div class="filter-field search-box">
+    <label for="annual-search">Quick Search</label>
+    <div style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="annual-search" type="text" placeholder="Filter by parish or deanery..." data-table-search="#annual-table">
+    </div>
+  </div>
+  <div class="filter-field">
+    <label>Financial Year</label>
+    <select name="year" onchange="this.form.submit()">
+      {% for y in years %}
+        <option value="{{ y }}" {% if y == year %}selected{% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter-field">
+    <label>Deanery</label>
+    <select name="deanery" onchange="this.form.submit()">
+      <option value="">All deaneries</option>
+      {% for d in deaneries %}
+        <option value="{{ d.pk }}" {% if deanery_id == d.pk|stringformat:"s" %}selected{% endif %}>{{ d.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>Q1 – Q4 Parish Financial Matrix</h2>
+      <div class="small muted">Annual consolidated position for {{ year }}</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table id="annual-table">
+      <thead>
+        <tr>
+          <th>Parish</th>
+          <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th>
+          <th class="num">Annual Income</th>
+          <th class="num">Annual Expenditure</th>
+          <th class="num">Surplus / (Deficit)</th>
+          <th class="num">Net Levy</th>
+          <th class="num">Outstanding</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr data-searchable="{{ r.parish.name }} {{ r.parish.deanery }}">
+          <td>
+            <a href="{% url 'parish_detail' r.parish.pk %}"><strong>{{ r.parish.name }}</strong></a>
+            <div class="small muted">{{ r.parish.deanery }}</div>
+          </td>
+          {% for q in r.quarters %}
+            <td>
+              {% if q %}
+                <a href="{% url 'return_detail' q.pk %}"><span class="badge badge-{{ q.status }}">{{ q.get_status_display }}</span></a>
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+          {% endfor %}
+          <td class="num">{{ r.income|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.expenditure|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.surplus|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.net_levy|floatformat:2|intcomma }}</td>
+          <td class="num"><strong>{{ r.outstanding|floatformat:2|intcomma }}</strong></td>
+        </tr>
+        {% endfor %}
+        <tr class="total-row">
+          <td colspan="5">DIOCESAN TOTAL</td>
+          <td class="num">{{ grand.income|floatformat:2|intcomma }}</td>
+          <td class="num">{{ grand.expenditure|floatformat:2|intcomma }}</td>
+          <td class="num">{{ grand.surplus|floatformat:2|intcomma }}</td>
+          <td class="num">{{ grand.net_levy|floatformat:2|intcomma }}</td>
+          <td class="num">{{ grand.outstanding|floatformat:2|intcomma }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

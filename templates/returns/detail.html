@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block page_kicker %}{{ parish.deanery }} &middot; {{ ret.get_status_display }}{% endblock %}
+{% block page_title %}{{ parish.name }} &middot; {{ period.label }}{% endblock %}
+{% block topbar_actions %}
+  {% if can_edit %}
+    <a class="btn btn-primary btn-sm" href="{% url 'return_edit' parish.pk period.pk %}">Edit draft</a>
+  {% endif %}
+  <a class="btn btn-sm" href="{% url 'return_pdf' ret.pk %}" data-loading-link data-loading-text="Generating PDF...">Download PDF</a>
+  <a class="btn btn-sm" href="{% url 'return_xlsx' ret.pk %}" data-loading-link data-loading-text="Generating Excel...">Download Excel</a>
+  <a class="btn btn-soft btn-sm" href="{% url 'parish_history' parish.pk %}">All returns</a>
+{% endblock %}
+
+{% block content %}
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-top"><span class="kpi-label">Opening Balance</span></div>
+    <div class="kpi-value">{{ CURRENCY }}{{ ret.opening_balance|floatformat:2|intcomma }}</div>
+    <div class="kpi-sub">{% if ret.submitted_at %}Submitted {{ ret.submitted_at|date:"j M Y" }}{% else %}Draft return{% endif %}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-top"><span class="kpi-label">Total Income</span></div>
+    <div class="kpi-value">{{ CURRENCY }}{{ ret.total_income|floatformat:2|intcomma }}</div>
+    <div class="kpi-sub">Levyable: {{ CURRENCY }}{{ ret.levyable_income|floatformat:2|intcomma }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-top"><span class="kpi-label">Total Expenditure</span></div>
+    <div class="kpi-value">{{ CURRENCY }}{{ ret.total_expenditure|floatformat:2|intcomma }}</div>
+    <div class="kpi-sub">Quarterly net: {{ CURRENCY }}{{ ret.surplus|floatformat:2|intcomma }}</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-top"><span class="kpi-label">Closing ({% if ret.closing_balance >= 0 %}Surplus{% else %}Deficit{% endif %})</span></div>
+    <div class="kpi-value">{{ CURRENCY }}{{ ret.closing_balance|floatformat:2|intcomma }}</div>
+    <div class="kpi-sub">Levy outstanding: {{ CURRENCY }}{{ ret.levy_outstanding|floatformat:2|intcomma }}</div>
+  </div>
+</div>
+
+<div class="grid-layout-aside">
+  <div>
+    <div class="panel panel-accent">
+      <div class="panel-header">
+        <h2>Cathedraticum &amp; Remittance</h2>
+        <span class="badge badge-{{ ret.status }}">{{ ret.get_status_display }}</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <tr><td>Income subject to Cathedraticum</td><td class="num">{{ CURRENCY }}{{ ret.levyable_income|floatformat:2|intcomma }}</td></tr>
+          <tr><td>Rate applied</td><td class="num">{{ period.levy_percent }}%</td></tr>
+          <tr><td>Cathedraticum due</td><td class="num">{{ CURRENCY }}{{ ret.levy_due|floatformat:2|intcomma }}</td></tr>
+          {% if ret.waiver_type != "none" %}
+          <tr>
+            <td>Waiver ({{ ret.get_waiver_type_display }}{% if ret.waiver_reason %} – {{ ret.waiver_reason }}{% endif %})</td>
+            <td class="num">−{{ CURRENCY }}{{ ret.waiver_amount|floatformat:2|intcomma }}</td>
+          </tr>
+          {% endif %}
+          <tr class="total-row"><td>Net Cathedraticum payable</td><td class="num">{{ CURRENCY }}{{ ret.net_levy|floatformat:2|intcomma }}</td></tr>
+          <tr><td>Payments recorded</td><td class="num">{{ CURRENCY }}{{ ret.amount_paid|floatformat:2|intcomma }}</td></tr>
+          <tr class="total-row"><td>Balance outstanding</td><td class="num">{{ CURRENCY }}{{ ret.levy_outstanding|floatformat:2|intcomma }}</td></tr>
+        </table>
+      </div>
+      {% if payments %}
+      <div class="panel-header" style="border-top:1px solid var(--border-soft)"><h3>Payments Recorded</h3></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Method</th><th>Reference</th><th class="num">Amount ({{ CURRENCY }})</th></tr></thead>
+          <tbody>
+            {% for p in payments %}
+              <tr><td>{{ p.date_paid|date:"j M Y" }}</td><td>{{ p.get_method_display }}</td><td>{{ p.reference|default:"—" }}</td><td class="num">{{ p.amount|floatformat:2|intcomma }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="panel panel-accent">
+      <div class="panel-header"><h2>Income Details</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Source</th><th class="num">Central</th><th class="num">Outstation</th><th class="num">Other</th><th class="num">Total ({{ CURRENCY }})</th></tr>
+          </thead>
+          <tbody>
+            {% for grp, rows in sheet.income_groups.items %}
+              <tr class="group-row"><td colspan="5">{{ grp }}</td></tr>
+              {% for r in rows %}
+                {% if r.total or r.notes %}
+                <tr>
+                  <td>
+                    {{ r.line.label }}
+                    {% if r.line.is_levyable %}<span class="badge badge-levy badge-plain">Levyable</span>{% endif %}
+                    {% if r.notes %}<div class="small muted">{{ r.notes|join:"; " }}</div>{% endif %}
+                  </td>
+                  <td class="num">{{ r.quarter.central|floatformat:2|intcomma }}</td>
+                  <td class="num">{{ r.quarter.outstation|floatformat:2|intcomma }}</td>
+                  <td class="num">{{ r.quarter.other|floatformat:2|intcomma }}</td>
+                  <td class="num"><strong>{{ r.total|floatformat:2|intcomma }}</strong></td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+            <tr class="total-row">
+              <td>TOTAL INCOME</td>
+              <td class="num">{{ sheet.summary.income_columns.central|floatformat:2|intcomma }}</td>
+              <td class="num">{{ sheet.summary.income_columns.outstation|floatformat:2|intcomma }}</td>
+              <td class="num">{{ sheet.summary.income_columns.other|floatformat:2|intcomma }}</td>
+              <td class="num">{{ sheet.summary.total_income|floatformat:2|intcomma }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-accent">
+      <div class="panel-header"><h2>Expenditure Details</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Heading</th>
+              {% for mname in period.month_names %}<th class="num">{{ mname }}</th>{% endfor %}
+              <th class="num">Total ({{ CURRENCY }})</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for grp, rows in sheet.expense_groups.items %}
+              <tr class="group-row"><td colspan="5">{{ grp }}</td></tr>
+              {% for r in rows %}
+                {% if r.total or r.notes %}
+                <tr>
+                  <td>
+                    {{ r.line.label }}
+                    {% if r.notes %}<div class="small muted">{{ r.notes|join:"; " }}</div>{% endif %}
+                  </td>
+                  {% for m in r.months %}<td class="num">{{ m.amount|floatformat:2|intcomma }}</td>{% endfor %}
+                  <td class="num"><strong>{{ r.total|floatformat:2|intcomma }}</strong></td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+            <tr class="total-row">
+              <td>TOTAL EXPENDITURE</td>
+              {% for m in sheet.month_expense %}<td class="num">{{ m|floatformat:2|intcomma }}</td>{% endfor %}
+              <td class="num">{{ sheet.summary.total_expenditure|floatformat:2|intcomma }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    {% if is_chancery %}
+    <div class="panel panel-accent no-print">
+      <div class="panel-header"><h2>Chancery Actions</h2></div>
+      <div class="panel-body">
+        {% if ret.status == "submitted" %}
+          <form method="post" action="{% url 'return_accept' ret.pk %}" style="margin-bottom:1rem">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-block" type="submit" data-loading-text="Accepting...">Mark as Accepted</button>
+          </form>
+        {% endif %}
+
+        {% if ret.is_filed %}
+          <details style="margin-bottom:1rem;padding-bottom:.85rem;border-bottom:1px solid var(--border-soft)">
+            <summary style="cursor:pointer;font-weight:600;font-size:13px">Unlock return for correction</summary>
+            <form method="post" action="{% url 'return_unlock' ret.pk %}" style="margin-top:.65rem">
+              {% csrf_token %}
+              <div class="form-row">{{ unlock_form.reason }}</div>
+              <button class="btn btn-danger btn-sm" type="submit" data-loading-text="Unlocking...">Unlock return</button>
+            </form>
+          </details>
+        {% endif %}
+
+        <details style="margin-bottom:1rem;padding-bottom:.85rem;border-bottom:1px solid var(--border-soft)" open>
+          <summary style="cursor:pointer;font-weight:600;font-size:13px">Cathedraticum waiver</summary>
+          <form method="post" action="{% url 'return_waive' ret.pk %}" style="margin-top:.65rem">
+            {% csrf_token %}
+            <div class="form-row"><label>Type</label>{{ waiver_form.waiver_type }}</div>
+            <div class="form-row"><label>Amount / %</label>{{ waiver_form.waiver_value }}</div>
+            <div class="form-row"><label>Reason</label>{{ waiver_form.reason }}</div>
+            <button class="btn btn-soft btn-sm" type="submit" data-loading-text="Saving waiver...">Save waiver</button>
+          </form>
+        </details>
+
+        <details open>
+          <summary style="cursor:pointer;font-weight:600;font-size:13px">Record Cathedraticum payment</summary>
+          <form method="post" action="{% url 'return_payment' ret.pk %}" style="margin-top:.65rem">
+            {% csrf_token %}
+            <div class="form-row"><label>Amount ({{ CURRENCY }})</label>{{ payment_form.amount }}</div>
+            <div class="form-row"><label>Date paid</label>{{ payment_form.date_paid }}</div>
+            <div class="form-row"><label>Method</label>{{ payment_form.method }}</div>
+            <div class="form-row"><label>Reference</label>{{ payment_form.reference }}</div>
+            <button class="btn btn-primary btn-sm" type="submit" data-loading-text="Recording payment...">Record payment</button>
+          </form>
+        </details>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if audit %}
+    <div class="panel no-print">
+      <div class="panel-header"><h2>Audit Trail</h2></div>
+      <div class="panel-body">
+        <ul class="timeline">
+          {% for a in audit %}
+          <li>
+            <span class="timeline-dot"></span>
+            <div class="flex-between" style="gap:.4rem">
+              <span class="badge badge-plain">{{ a.action }}</span>
+              <span class="small muted">{{ a.created_at|date:"j M Y H:i" }}</span>
+            </div>
+            <div class="small" style="margin-top:.25rem">{{ a.detail }}</div>
+            <div class="small muted">by {{ a.actor|default:"System" }}</div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

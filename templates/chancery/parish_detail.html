@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block page_kicker %}{{ parish.deanery }}{% endblock %}
+{% block page_title %}{{ parish.name }}{% endblock %}
+{% block topbar_actions %}
+  <a class="btn btn-primary btn-sm" href="{% url 'transfer' %}?parish={{ parish.pk }}">Assign Priest</a>
+  <a class="btn btn-sm" href="{% url 'parish_list' %}">All parishes</a>
+{% endblock %}
+
+{% block content %}
+<div class="grid-2">
+  <div class="panel panel-accent">
+    <div class="panel-header"><h2>Parish Details</h2></div>
+    <div class="panel-body">
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
+          </div>
+        {% endfor %}
+        <button class="btn btn-primary btn-sm" type="submit" data-loading-text="Saving...">Save changes</button>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel panel-accent">
+      <div class="panel-header"><h2>Priests Assigned</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Priest</th><th>Role</th><th>Dates</th><th></th></tr></thead>
+          <tbody>
+            {% for a in assignments %}
+            <tr>
+              <td><a href="{% url 'priest_detail' a.priest.pk %}"><strong>{{ a.priest }}</strong></a></td>
+              <td class="small">{{ a.get_role_display }}</td>
+              <td class="small">{{ a.start_date|date:"j M Y" }} – {% if a.end_date %}{{ a.end_date|date:"j M Y" }}{% else %}<span class="badge badge-submitted">Current</span>{% endif %}</td>
+              <td class="num">
+                {% if a.is_active %}
+                <form method="post" action="{% url 'assignment_end' a.pk %}" class="inline-form">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.path }}">
+                  <input type="date" name="end_date" value="{{ end_form.end_date.initial|date:'Y-m-d' }}" style="width:125px">
+                  <button class="btn btn-sm" type="submit" data-loading-text="Ending...">End</button>
+                </form>
+                {% endif %}
+              </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4" class="muted">No priests assigned.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-accent">
+      <div class="panel-header"><h2>Quarterly Returns</h2></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Period</th><th>Status</th><th class="num">Surplus/(Deficit)</th><th class="num">Outstanding</th><th></th></tr></thead>
+          <tbody>
+            {% for r in returns %}
+            <tr>
+              <td><strong>{{ r.period.label }}</strong></td>
+              <td><span class="badge badge-{{ r.status }}">{{ r.get_status_display }}</span></td>
+              <td class="num">{{ r.surplus|floatformat:2|intcomma }}</td>
+              <td class="num">{{ r.levy_outstanding|floatformat:2|intcomma }}</td>
+              <td class="num"><a class="btn btn-soft btn-sm" href="{% url 'return_detail' r.pk %}">Open</a></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="muted">No returns yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

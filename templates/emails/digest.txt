@@ -1,0 +1,6 @@
+Outstanding quarterly returns as at {{ today|date:"j F Y" }}
+{% for period, parishes in digest %}
+{{ period.label }} (due {{ period.due_date|date:"j M Y" }}) – {{ parishes|length }} outstanding
+{% for p in parishes %}  - {{ p.name }} ({{ p.deanery }})
+{% endfor %}{% endfor %}
+Compliance board: {{ site_url }}/chancery/

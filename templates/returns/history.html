@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block page_kicker %}{{ parish.deanery }}{% endblock %}
+{% block page_title %}{{ parish.name }} – Returns History{% endblock %}
+{% block topbar_actions %}
+  <a class="btn btn-sm" href="{% url 'home' %}">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>Historical Quarterly Returns</h2>
+      <div class="small muted">All filed and draft returns for {{ parish.name }}</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Status</th>
+          <th class="num">Opening ({{ CURRENCY }})</th>
+          <th class="num">Income ({{ CURRENCY }})</th>
+          <th class="num">Expenditure ({{ CURRENCY }})</th>
+          <th class="num">Closing ({{ CURRENCY }})</th>
+          <th class="num">Net Levy ({{ CURRENCY }})</th>
+          <th class="num">Outstanding ({{ CURRENCY }})</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in returns %}
+        <tr>
+          <td><strong>{{ r.period.label }}</strong></td>
+          <td><span class="badge badge-{{ r.status }}">{{ r.get_status_display }}</span></td>
+          <td class="num">{{ r.opening_balance|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.total_income|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.total_expenditure|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.closing_balance|floatformat:2|intcomma }}</td>
+          <td class="num">{{ r.net_levy|floatformat:2|intcomma }}</td>
+          <td class="num"><strong>{{ r.levy_outstanding|floatformat:2|intcomma }}</strong></td>
+          <td class="num"><a class="btn btn-soft btn-sm" href="{% url 'return_detail' r.pk %}">Open</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="9" class="muted">No returns filed yet for this parish.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

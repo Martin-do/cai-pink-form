@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block page_kicker %}Directory &amp; Access{% endblock %}
+{% block page_title %}Parishes &amp; Units{% endblock %}
+{% block topbar_actions %}
+  <a class="btn btn-primary btn-sm" href="{% url 'parish_create' %}">Add parish</a>
+{% endblock %}
+
+{% block content %}
+<form method="get" class="filter-bar">
+  <div class="filter-field search-box">
+    <label for="parish-q">Search Parishes</label>
+    <div style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="parish-q" type="text" name="q" value="{{ q }}" placeholder="Search parish or priest..." data-table-search="#parishes-table">
+    </div>
+  </div>
+  <div class="filter-field">
+    <label>Deanery</label>
+    <select name="deanery" onchange="this.form.submit()">
+      <option value="">All deaneries</option>
+      {% for d in deaneries %}
+        <option value="{{ d.pk }}" {% if deanery == d.pk|stringformat:"s" %}selected{% endif %}>{{ d.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary btn-sm" type="submit" data-loading-text="Filtering...">Filter</button>
+</form>
+
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>Parishes, Chaplaincies &amp; Institutions</h2>
+      <div class="small muted">{{ parishes|length }} unit{{ parishes|length|pluralize }}</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table id="parishes-table">
+      <thead>
+        <tr><th>Parish</th><th>Deanery</th><th>Current Priests</th><th>Returns</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for p in parishes %}
+        <tr data-searchable="{{ p.name }} {{ p.deanery }} {% for a in p.active_assignments %}{{ a.priest }} {% endfor %}">
+          <td>
+            <div class="entity-cell">
+              <span class="monogram">{{ p.name|slice:":2"|upper }}</span>
+              <div>
+                <a href="{% url 'parish_detail' p.pk %}"><strong>{{ p.name }}</strong></a>
+                {% if p.run_by_religious %}<span class="badge badge-plain" style="margin-left:.3rem">{{ p.religious_congregation|default:"Religious" }}</span>{% endif %}
+              </div>
+            </div>
+          </td>
+          <td class="small">{{ p.deanery }}</td>
+          <td class="small">
+            {% for a in p.active_assignments %}
+              <div>
+                <a href="{% url 'priest_detail' a.priest.pk %}">{{ a.priest }}</a>
+                <span class="muted">({{ a.get_role_display }})</span>
+                {% if a.priest.user %}<span class="badge badge-submitted">Login active</span>{% endif %}
+              </div>
+            {% empty %}
+              <span class="muted">Unassigned</span>
+            {% endfor %}
+          </td>
+          <td class="small">{% if p.submits_returns %}<span class="badge badge-levy">Required</span>{% else %}<span class="badge badge-draft">Exempt</span>{% endif %}</td>
+          <td class="num"><a class="btn btn-soft btn-sm" href="{% url 'transfer' %}?parish={{ p.pk }}">Assign priest</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="muted">No parishes found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

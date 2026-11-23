@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block page_kicker %}Configuration{% endblock %}
+{% block page_title %}Reporting Periods{% endblock %}
+
+{% block content %}
+<div class="grid-layout-aside">
+  <div class="panel panel-accent">
+    <div class="panel-header"><h2>Existing Quarters &amp; Deadlines</h2></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Period</th><th>Due date</th><th>Levy rate</th><th>State</th><th></th></tr></thead>
+        <tbody>
+          {% for p in periods %}
+          <tr>
+            <td><strong>{{ p.label }}</strong></td>
+            <td>{{ p.due_date|date:"j M Y" }}</td>
+            <td>{{ p.levy_percent }}%</td>
+            <td>{% if p.is_open %}<span class="badge badge-submitted">Open</span>{% else %}<span class="badge badge-draft">Closed</span>{% endif %}</td>
+            <td class="num">
+              <form method="post" action="{% url 'period_toggle' p.pk %}">
+                {% csrf_token %}
+                <button class="btn btn-sm" type="submit" data-loading-text="Updating...">{% if p.is_open %}Close period{% else %}Reopen period{% endif %}</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel panel-accent">
+    <div class="panel-header"><h2>Add Reporting Period</h2></div>
+    <div class="panel-body">
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
+          </div>
+        {% endfor %}
+        <button class="btn btn-primary btn-block" type="submit" data-loading-text="Creating period...">Create period</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

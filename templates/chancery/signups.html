@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block page_kicker %}Directory &amp; Access{% endblock %}
+{% block page_title %}Priest Account Sign-ups{% endblock %}
+
+{% block content %}
+<div class="stepper" style="max-width:540px">
+  {% for code, label in statuses %}
+    <a class="step-btn {% if status == code %}active{% endif %}" href="?status={{ code }}">{{ label }}</a>
+  {% endfor %}
+</div>
+
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>{{ status|title }} Registrations</h2>
+      <div class="small muted">Verify priest identities and link their login to the official Archdiocesan list</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Registered Name</th>
+          <th>Email / Phone</th>
+          <th>Claimed Parish</th>
+          <th>Submitted</th>
+          <th>Link &amp; Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td>
+            <div class="entity-cell">
+              <span class="monogram">{{ r.profile.name_as_listed|slice:":2"|upper }}</span>
+              <strong>{{ r.profile.name_as_listed }}</strong>
+            </div>
+          </td>
+          <td class="small">{{ r.profile.user.email }}<br><span class="muted">{{ r.profile.phone|default:"—" }}</span></td>
+          <td class="small">{{ r.profile.claimed_parish|default:"—" }}</td>
+          <td class="small muted">{{ r.profile.created_at|date:"j M Y H:i" }}</td>
+          <td>
+            {% if status == "pending" %}
+            <form method="post" action="{% url 'signup_decide' r.profile.pk %}" class="inline-form">
+              {% csrf_token %}
+              <div style="min-width:210px">{{ r.form.priest }}</div>
+              <div><input type="text" name="{{ r.form.note.html_name }}" placeholder="Note (optional)" style="width:150px"></div>
+              <button class="btn btn-primary btn-sm" type="submit" name="action" value="approve" data-loading-text="Approving...">Approve &amp; Link</button>
+              <button class="btn btn-danger btn-sm" type="submit" name="action" value="reject" data-loading-text="Rejecting...">Reject</button>
+            </form>
+            {% else %}
+              <span class="small">{{ r.linked|default:r.profile.review_note|default:"—" }}</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="muted">No {{ status }} sign-ups right now.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

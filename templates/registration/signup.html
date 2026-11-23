@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Create Priest Account – {{ DIOCESE_NAME }}{% endblock %}
+{% block shell %}
+<div class="auth-screen">
+  <aside class="auth-visual" style="background-image:url('{% static 'img/cathedral-hero.png' %}')">
+    <div class="auth-visual-inner">
+      <div class="auth-brand">
+        <img src="{% static 'img/archdiocese-emblem.png' %}" alt="Archdiocese Emblem">
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;color:#fff">{{ DIOCESE_NAME }}</div>
+          <div style="font-size:12px;color:rgba(251,191,36,0.9);letter-spacing:.05em;text-transform:uppercase">Priest Onboarding</div>
+        </div>
+      </div>
+      <h1>One account across every parish assignment</h1>
+      <p>Register once with your details. When transfers occur, the Chancery updates your assignment and your new parish appears in your dashboard automatically.</p>
+
+      <ul class="auth-glass-list">
+        <li><span class="auth-glass-badge">1</span><span>Register with your name &amp; email address</span></li>
+        <li><span class="auth-glass-badge">2</span><span>Chancery verifies &amp; links you to the priests directory</span></li>
+        <li><span class="auth-glass-badge">3</span><span>Submit quarterly returns for the parish you currently head</span></li>
+      </ul>
+    </div>
+    <p class="small" style="position:relative;z-index:1;color:rgba(255,255,255,.65);margin:2rem 0 0">
+      Catholic Archdiocese of Ibadan &middot; Financial Administration
+    </p>
+  </aside>
+
+  <main class="auth-form-pane">
+    <div class="auth-card" style="max-width:460px">
+      <h1 style="font-size:1.45rem;margin-bottom:.25rem">Create priest account</h1>
+      <p class="muted" style="margin:0 0 1.25rem">Enter your details as they appear on the Archdiocesan priests list.</p>
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-row">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% if "password" in field.name %}
+              <div class="input-wrap">
+                {{ field }}
+                <button type="button" class="pw-toggle" data-pw-toggle>Show</button>
+              </div>
+            {% else %}
+              {{ field }}
+            {% endif %}
+            {{ field.errors }}
+          </div>
+        {% endfor %}
+        <button class="btn btn-primary btn-block" type="submit" data-loading-text="Creating account...">Create account</button>
+      </form>
+      <p class="small muted" style="margin:1.1rem 0 0;text-align:center">
+        Already registered? <a href="{% url 'login' %}" style="font-weight:600">Sign in instead</a>
+      </p>
+    </div>
+  </main>
+</div>
+{% endblock %}

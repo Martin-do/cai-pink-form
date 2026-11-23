@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block page_kicker %}Chancery Overview{% endblock %}
+{% block page_title %}Compliance &amp; Remittance Board{% endblock %}
+{% block topbar_actions %}
+  {% if period %}
+    <a class="btn btn-primary btn-sm" href="{% url 'period_xlsx' period.pk %}" data-loading-link data-loading-text="Exporting...">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Export Excel Summary</span>
+    </a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="hero-banner" style="background-image:url('{% static 'img/chancery-banner.png' %}')">
+  <div class="hero-banner-inner">
+    <div>
+      <h1>{% if period %}{{ period.label }}{% else %}No Reporting Periods{% endif %}</h1>
+      <p>Track quarterly parish submissions, verify surplus or deficit positions, and monitor Cathedraticum remittances across the Archdiocese.</p>
+      {% if period %}
+      <div class="hero-pills">
+        <span class="hero-pill">Due {{ period.due_date|date:"j F Y" }}</span>
+        <span class="hero-pill">Cathedraticum {{ period.levy_percent }}%</span>
+        <span class="hero-pill">{{ totals.overdue }} Overdue</span>
+      </div>
+      {% endif %}
+    </div>
+    <div class="hero-progress-card">
+      <div class="flex-between">
+        <span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.8)">Filing Compliance</span>
+        <strong style="font-size:1.15rem;color:var(--gold-400)">{{ totals.compliance_pct }}%</strong>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width:{{ totals.compliance_pct }}%"></div>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,.78)">
+        {{ totals.filed }} of {{ totals.parishes }} parishes submitted &middot; {{ totals.draft }} in draft
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-top">
+      <span class="kpi-label">Parishes Filed</span>
+      <span class="kpi-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+    </div>
+    <div class="kpi-value">{{ totals.filed }} <span class="muted" style="font-size:.95rem;font-weight:600">/ {{ totals.parishes }}</span></div>
+    <div class="kpi-sub">{{ totals.draft }} in draft &middot; {{ totals.not_started }} not started</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-top">
+      <span class="kpi-label">Reported Income</span>
+      <span class="kpi-icon green"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+    </div>
+    <div class="kpi-value">{{ CURRENCY }}{{ totals.income|floatformat:0|intcomma }}</div>
+    <div class="kpi-sub">Expenditure: {{ CURRENCY }}{{ totals.expenditure|floatformat:0|intcomma }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-top">
+      <span class="kpi-label">Net Cathedraticum</span>
+      <span class="kpi-icon blue"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+    </div>
+    <div class="kpi-value">{{ CURRENCY }}{{ totals.net_levy|floatformat:0|intcomma }}</div>
+    <div class="kpi-sub">Waived: {{ CURRENCY }}{{ totals.waived|floatformat:0|intcomma }}</div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-top">
+      <span class="kpi-label">Levy Outstanding</span>
+      <span class="kpi-icon amber"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+    </div>
+    <div class="kpi-value">{{ CURRENCY }}{{ totals.outstanding|floatformat:0|intcomma }}</div>
+    <div class="kpi-sub">Collected: {{ CURRENCY }}{{ totals.paid|floatformat:0|intcomma }}</div>
+  </div>
+</div>
+
+<form method="get" class="filter-bar">
+  <div class="filter-field search-box">
+    <label for="compliance-search">Quick Search</label>
+    <div style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="compliance-search" type="text" placeholder="Filter parish, deanery, or priest..." data-table-search="#compliance-table">
+    </div>
+  </div>
+  <div class="filter-field">
+    <label>Period</label>
+    <select name="period" onchange="this.form.submit()">
+      {% for p in periods %}
+        <option value="{{ p.pk }}" {% if period and p.pk == period.pk %}selected{% endif %}>{{ p.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter-field">
+    <label>Deanery</label>
+    <select name="deanery" onchange="this.form.submit()">
+      <option value="">All deaneries</option>
+      {% for d in deaneries %}
+        <option value="{{ d.pk }}" {% if deanery_id == d.pk|stringformat:"s" %}selected{% endif %}>{{ d.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="filter-field">
+    <label>Status Filter</label>
+    <select name="status" onchange="this.form.submit()">
+      <option value="">All parishes</option>
+      <option value="filed" {% if status_filter == "filed" %}selected{% endif %}>Submitted / Accepted</option>
+      <option value="pending" {% if status_filter == "pending" %}selected{% endif %}>Not yet submitted</option>
+      <option value="owed" {% if status_filter == "owed" %}selected{% endif %}>Cathedraticum owing</option>
+    </select>
+  </div>
+</form>
+
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>Parish Compliance Register</h2>
+      <div class="small muted">Showing {{ rows|length }} parish{{ rows|length|pluralize:"es" }}</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table id="compliance-table">
+      <thead>
+        <tr>
+          <th>Parish &amp; Deanery</th>
+          <th>Parish Priest</th>
+          <th>Status</th>
+          <th class="num">Income ({{ CURRENCY }})</th>
+          <th class="num">Surplus / (Deficit)</th>
+          <th class="num">Net Levy</th>
+          <th class="num">Outstanding</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr data-searchable="{{ r.parish.name }} {{ r.parish.deanery }} {{ r.priest|default:'' }}">
+          <td>
+            <div class="entity-cell">
+              <span class="monogram">{{ r.parish.name|slice:":2"|upper }}</span>
+              <div>
+                <a href="{% url 'parish_detail' r.parish.pk %}"><strong>{{ r.parish.name }}</strong></a>
+                <div class="small muted">{{ r.parish.deanery }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="small">{{ r.priest|default:"—" }}</td>
+          <td>
+            <span class="badge badge-{{ r.state }}">
+              {% if r.ret %}{{ r.ret.get_status_display }}{% elif r.state == "overdue" %}Overdue{% else %}Not started{% endif %}
+            </span>
+          </td>
+          <td class="num">{% if r.ret %}{{ r.ret.total_income|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+          <td class="num">{% if r.ret %}{{ r.ret.surplus|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+          <td class="num">{% if r.ret %}{{ r.ret.net_levy|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</td>
+          <td class="num"><strong>{% if r.ret %}{{ r.ret.levy_outstanding|floatformat:2|intcomma }}{% else %}<span class="muted">—</span>{% endif %}</strong></td>
+          <td class="num">
+            {% if r.ret %}
+              <a class="btn btn-soft btn-sm" href="{% url 'return_detail' r.ret.pk %}">Review</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="8" class="muted">No parishes match this filter.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

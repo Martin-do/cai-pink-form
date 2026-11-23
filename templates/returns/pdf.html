@@ -1,0 +1,96 @@
+{% load humanize %}<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: Helvetica, Arial, sans-serif; font-size: 9pt; color: #1f1a1c; }
+  h1 { font-size: 13pt; color: #8b1e3f; margin: 0; text-align: center; }
+  h2 { font-size: 10.5pt; margin: 2px 0 10px; text-align: center; }
+  h3 { font-size: 9.5pt; color: #8b1e3f; margin: 12px 0 4px; border-bottom: 1px solid #8b1e3f; padding-bottom: 2px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  th, td { border: 0.5px solid #ccc; padding: 3px 5px; }
+  th { background: #fce4ec; font-weight: bold; text-align: left; }
+  .num { text-align: right; }
+  .grp { background: #fdf2f5; font-weight: bold; color: #6b142f; }
+  .tot { background: #f3ecef; font-weight: bold; }
+  .meta td { border: none; padding: 2px 4px; }
+</style>
+</head>
+<body>
+  <h1>{{ diocese|upper }}</h1>
+  <h2>{{ period.label|upper }} – QUARTERLY PARISH RETURN</h2>
+
+  <table class="meta">
+    <tr>
+      <td><strong>Parish:</strong> {{ parish.name }}</td>
+      <td><strong>Deanery:</strong> {{ parish.deanery }}</td>
+    </tr>
+    <tr>
+      <td><strong>Parish Priest:</strong> {{ priest|default:"—" }}</td>
+      <td><strong>Status:</strong> {{ ret.get_status_display }}{% if ret.submitted_at %} ({{ ret.submitted_at|date:"j M Y" }}){% endif %}</td>
+    </tr>
+  </table>
+
+  <h3>Balance Account &amp; Cathedraticum</h3>
+  <table>
+    <tr><td>Opening balance brought forward</td><td class="num">{{ currency }}{{ ret.opening_balance|floatformat:2|intcomma }}</td>
+        <td>Total expenditure for the quarter</td><td class="num">{{ currency }}{{ ret.total_expenditure|floatformat:2|intcomma }}</td></tr>
+    <tr><td>Total income for the quarter</td><td class="num">{{ currency }}{{ ret.total_income|floatformat:2|intcomma }}</td>
+        <td class="tot">Closing balance / (deficit)</td><td class="num tot">{{ currency }}{{ ret.closing_balance|floatformat:2|intcomma }}</td></tr>
+    <tr><td>Income subject to Cathedraticum</td><td class="num">{{ currency }}{{ ret.levyable_income|floatformat:2|intcomma }}</td>
+        <td>Cathedraticum ({{ period.levy_percent }}%)</td><td class="num">{{ currency }}{{ ret.levy_due|floatformat:2|intcomma }}</td></tr>
+    <tr><td>Waiver</td><td class="num">{{ currency }}{{ ret.waiver_amount|floatformat:2|intcomma }}</td>
+        <td class="tot">Net Cathedraticum payable</td><td class="num tot">{{ currency }}{{ ret.net_levy|floatformat:2|intcomma }}</td></tr>
+  </table>
+
+  <h3>Income Register</h3>
+  <table>
+    <thead><tr><th>Income Source</th><th class="num">Central</th><th class="num">Outstation</th><th class="num">Other</th><th class="num">Total ({{ currency }})</th></tr></thead>
+    <tbody>
+      {% for grp, rows in sheet.income_groups.items %}
+        <tr class="grp"><td colspan="5">{{ grp }}</td></tr>
+        {% for r in rows %}
+          <tr>
+            <td>{{ r.line.label }}{% if r.line.is_levyable %} *{% endif %}</td>
+            <td class="num">{{ r.quarter.central|floatformat:2|intcomma }}</td>
+            <td class="num">{{ r.quarter.outstation|floatformat:2|intcomma }}</td>
+            <td class="num">{{ r.quarter.other|floatformat:2|intcomma }}</td>
+            <td class="num">{{ r.total|floatformat:2|intcomma }}</td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
+      <tr class="tot">
+        <td>TOTAL INCOME</td>
+        <td class="num">{{ sheet.summary.income_columns.central|floatformat:2|intcomma }}</td>
+        <td class="num">{{ sheet.summary.income_columns.outstation|floatformat:2|intcomma }}</td>
+        <td class="num">{{ sheet.summary.income_columns.other|floatformat:2|intcomma }}</td>
+        <td class="num">{{ sheet.summary.total_income|floatformat:2|intcomma }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Expenditure Register</h3>
+  <table>
+    <thead><tr><th>Expenditure Heading</th>{% for m in months %}<th class="num">{{ m }}</th>{% endfor %}<th class="num">Total ({{ currency }})</th></tr></thead>
+    <tbody>
+      {% for grp, rows in sheet.expense_groups.items %}
+        <tr class="grp"><td colspan="5">{{ grp }}</td></tr>
+        {% for r in rows %}
+          <tr>
+            <td>{{ r.line.label }}</td>
+            {% for m in r.months %}<td class="num">{{ m.amount|floatformat:2|intcomma }}</td>{% endfor %}
+            <td class="num">{{ r.total|floatformat:2|intcomma }}</td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
+      <tr class="tot">
+        <td>TOTAL EXPENDITURE</td>
+        {% for m in sheet.month_expense %}<td class="num">{{ m|floatformat:2|intcomma }}</td>{% endfor %}
+        <td class="num">{{ sheet.summary.total_expenditure|floatformat:2|intcomma }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:8pt; color:#666">* Income lines marked with an asterisk are subject to Cathedraticum. Prepared by: {{ ret.prepared_by|default:"—" }}</p>
+</body>
+</html>

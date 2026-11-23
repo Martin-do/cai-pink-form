@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block page_kicker %}Directory &amp; Access{% endblock %}
+{% block page_title %}Priests Directory{% endblock %}
+{% block topbar_actions %}
+  <a class="btn btn-sm" href="{% url 'transfer' %}">Transfer / Assign</a>
+  <a class="btn btn-primary btn-sm" href="{% url 'priest_create' %}">Add priest</a>
+{% endblock %}
+
+{% block content %}
+<form method="get" class="filter-bar">
+  <div class="filter-field search-box">
+    <label for="priest-q">Search Priests or Parishes</label>
+    <div style="position:relative">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="priest-q" type="text" name="q" value="{{ q }}" placeholder="Search by priest or parish name..." data-table-search="#priests-table">
+    </div>
+  </div>
+  <div class="filter-field">
+    <label>Account Filter</label>
+    <select name="f" onchange="this.form.submit()">
+      <option value="">All priests</option>
+      <option value="linked" {% if f == "linked" %}selected{% endif %}>Has portal login</option>
+      <option value="unlinked" {% if f == "unlinked" %}selected{% endif %}>No portal login yet</option>
+      <option value="unassigned" {% if f == "unassigned" %}selected{% endif %}>No current parish</option>
+    </select>
+  </div>
+  <button class="btn btn-primary btn-sm" type="submit" data-loading-text="Searching...">Search</button>
+</form>
+
+<div class="panel panel-accent">
+  <div class="panel-header">
+    <div>
+      <h2>Clergy Roster</h2>
+      <div class="small muted">{{ priests|length }} priest{{ priests|length|pluralize }}</div>
+    </div>
+  </div>
+  <div class="table-scroll">
+    <table id="priests-table">
+      <thead>
+        <tr><th>Name</th><th>Current Assignment(s)</th><th>Portal Account</th><th>Contact</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for p in priests %}
+        <tr data-searchable="{{ p }} {% for a in p.active_assignments %}{{ a.parish.name }} {% endfor %}">
+          <td>
+            <div class="entity-cell">
+              <span class="monogram">{{ p.full_name|slice:":2"|upper }}</span>
+              <a href="{% url 'priest_detail' p.pk %}"><strong>{{ p }}</strong></a>
+            </div>
+          </td>
+          <td class="small">
+            {% for a in p.active_assignments %}
+              <div>{{ a.parish.name }} <span class="muted">({{ a.get_role_display }})</span></div>
+            {% empty %}
+              <span class="muted">Unassigned</span>
+            {% endfor %}
+          </td>
+          <td class="small">
+            {% if p.user %}
+              <span class="badge badge-submitted">{{ p.user.email }}</span>
+            {% else %}
+              <span class="badge badge-draft">Not linked</span>
+            {% endif %}
+          </td>
+          <td class="small muted">{{ p.phone|default:"—" }}</td>
+          <td class="num"><a class="btn btn-soft btn-sm" href="{% url 'transfer' %}?priest={{ p.pk }}">Transfer</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="muted">No priests found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

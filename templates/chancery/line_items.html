@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block page_kicker %}Configuration{% endblock %}
+{% block page_title %}Pink Sheet Line Items{% endblock %}
+
+{% block content %}
+<p class="muted" style="margin:0 0 1rem">Control which income lines count towards the Cathedraticum levy, and which lines are active on the quarterly return form.</p>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="panel panel-accent">
+    <div class="panel-header">
+      <h2>Income Lines</h2>
+      <div class="search-box" style="max-width:260px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Filter income lines..." data-table-search="#cfg-income-table">
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table id="cfg-income-table">
+        <thead><tr><th>Code</th><th>Group</th><th>Label</th><th>Levyable</th><th>Active</th></tr></thead>
+        <tbody>
+          {% for li in income_lines %}
+          <tr data-searchable="{{ li.code }} {{ li.group }} {{ li.label }}">
+            <td class="small muted">{{ li.code }}</td>
+            <td class="small">{{ li.group }}</td>
+            <td><strong>{{ li.label }}</strong></td>
+            <td><input type="checkbox" name="levyable" value="{{ li.id }}" {% if li.is_levyable %}checked{% endif %} style="width:auto"></td>
+            <td><input type="checkbox" name="active" value="{{ li.id }}" {% if li.active %}checked{% endif %} style="width:auto"></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel panel-accent">
+    <div class="panel-header">
+      <h2>Expenditure Lines</h2>
+      <div class="search-box" style="max-width:260px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Filter expenditure lines..." data-table-search="#cfg-expense-table">
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table id="cfg-expense-table">
+        <thead><tr><th>Code</th><th>Group</th><th>Label</th><th>Active</th></tr></thead>
+        <tbody>
+          {% for li in expense_lines %}
+          <tr data-searchable="{{ li.code }} {{ li.group }} {{ li.label }}">
+            <td class="small muted">{{ li.code }}</td>
+            <td class="small">{{ li.group }}</td>
+            <td><strong>{{ li.label }}</strong></td>
+            <td><input type="checkbox" name="active" value="{{ li.id }}" {% if li.active %}checked{% endif %} style="width:auto"></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sticky-bar">
+    <span class="small muted">Changes apply immediately to new and draft returns.</span>
+    <button class="btn btn-primary" type="submit" data-loading-text="Saving settings...">Save Pink Sheet Settings</button>
+  </div>
+</form>
+{% endblock %}

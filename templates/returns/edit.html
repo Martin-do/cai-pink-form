@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block page_kicker %}{{ parish.deanery }} &middot; Due {{ period.due_date|date:"j F Y" }}{% endblock %}
+{% block page_title %}{{ parish.name }} &middot; {{ period.label }}{% endblock %}
+{% block topbar_actions %}
+  <span class="badge badge-{{ ret.status }}">{{ ret.get_status_display }}</span>
+  <a class="btn btn-sm" href="{% url 'my_dashboard' %}">Back to My Parishes</a>
+{% endblock %}
+
+{% block content %}
+{% if unlock_reason and ret.status == "unlocked" %}
+<div class="panel" style="background:var(--amber-soft);border-color:#fde68a;margin-bottom:1.1rem">
+  <div class="panel-body" style="padding:.9rem 1.15rem;color:var(--amber)">
+    <strong>Returned for correction by Chancery:</strong> {{ unlock_reason.detail }}
+  </div>
+</div>
+{% endif %}
+
+<form id="return-form" method="post"
+      data-levy-rate="{{ period.levy_rate }}"
+      data-opening="{{ ret.opening_balance }}">
+  {% csrf_token %}
+  <input type="hidden" name="tab" id="active-tab-input" value="income">
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-top"><span class="kpi-label">Opening Balance</span></div>
+      {% if ret.opening_balance_carried %}
+        <div class="kpi-value">{{ CURRENCY }}{{ ret.opening_balance|floatformat:2|intcomma }}</div>
+        <div class="kpi-sub">Carried from {{ prev.period }}</div>
+      {% else %}
+        <input id="opening-balance-input" type="text" name="opening_balance"
+               value="{{ ret.opening_balance|floatformat:2 }}" style="font-weight:700;font-size:1.05rem">
+        <div class="kpi-sub">Verified opening balance</div>
+      {% endif %}
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top"><span class="kpi-label">Total Income</span></div>
+      <div class="kpi-value">{{ CURRENCY }}<span id="sum-income">{{ sheet.summary.total_income|floatformat:2|intcomma }}</span></div>
+      <div class="kpi-sub">All 3 months combined</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top"><span class="kpi-label">Total Expenditure</span></div>
+      <div class="kpi-value">{{ CURRENCY }}<span id="sum-expense">{{ sheet.summary.total_expenditure|floatformat:2|intcomma }}</span></div>
+      <div class="kpi-sub">All 3 months combined</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-top"><span class="kpi-label">Cathedraticum ({{ period.levy_percent }}%)</span></div>
+      <div class="kpi-value">{{ CURRENCY }}<span id="sum-levy">{{ sheet.summary.levy_due|floatformat:2|intcomma }}</span></div>
+      <div class="kpi-sub">On {{ CURRENCY }}<span id="sum-levyable">{{ sheet.summary.levyable_income|floatformat:2|intcomma }}</span> levyable</div>
+    </div>
+  </div>
+
+  <div class="stepper" role="tablist">
+    <button type="button" class="step-btn active" data-tab="income">
+      <span class="step-num">1</span>
+      <span>Income Register</span>
+    </button>
+    <button type="button" class="step-btn" data-tab="expense">
+      <span class="step-num">2</span>
+      <span>Expenditure Register</span>
+    </button>
+    <button type="button" class="step-btn" data-tab="summary">
+      <span class="step-num">3</span>
+      <span>Balance &amp; Submit</span>
+    </button>
+  </div>
+
+  <!-- STEP 1: INCOME -->
+  <div class="tab-panel active" id="tab-income">
+    <div class="panel panel-accent">
+      <div class="panel-header">
+        <div>
+          <h2>Monthly Income / Collection Register</h2>
+          <div class="small muted">Lines tagged <span class="badge badge-levy badge-plain">Levyable</span> count towards the {{ period.levy_percent }}% Cathedraticum.</div>
+        </div>
+        <div class="search-box" style="max-width:260px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Filter income lines..." data-sheet-filter="#inc-sheet-table">
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table id="inc-sheet-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="min-width:220px">Income source</th>
+              {% for mnum, mname in months %}
+                <th colspan="3" style="text-align:center;border-left:1px solid var(--border)">{{ mname }}</th>
+              {% endfor %}
+              <th rowspan="2" class="num" style="border-left:1px solid var(--border)">Quarter Total ({{ CURRENCY }})</th>
+            </tr>
+            <tr>
+              {% for mnum, mname in months %}
+                <th class="num" style="border-left:1px solid var(--border)">Central</th>
+                <th class="num">Outstation</th>
+                <th class="num">Other</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for grp, rows in sheet.income_groups.items %}
+              <tr class="group-row"><td colspan="11">{{ grp }}</td></tr>
+              {% for r in rows %}
+                <tr data-inc-line="{{ r.line.id }}" data-levyable="{% if r.line.is_levyable %}1{% else %}0{% endif %}" data-line-label="{{ grp }} {{ r.line.label }}">
+                  <td>
+                    <div style="font-weight:500">{{ r.line.label }}</div>
+                    {% if r.line.is_levyable %}<span class="badge badge-levy badge-plain" style="margin-top:.2rem">Levyable</span>{% endif %}
+                    {% if r.line.needs_detail %}
+                      <input type="text" name="inc-{{ r.line.id }}-1-n" value="{{ r.months.0.note }}"
+                             placeholder="Specify details..." style="margin-top:.3rem;font-size:12px">
+                    {% endif %}
+                  </td>
+                  {% for m in r.months %}
+                    <td style="border-left:1px solid var(--border-soft)">
+                      <input class="money" type="number" step="0.01" min="0"
+                             name="inc-{{ r.line.id }}-{{ forloop.counter }}-c"
+                             value="{% if m.central %}{{ m.central }}{% endif %}" placeholder="0">
+                    </td>
+                    <td>
+                      <input class="money" type="number" step="0.01" min="0"
+                             name="inc-{{ r.line.id }}-{{ forloop.counter }}-o"
+                             value="{% if m.outstation %}{{ m.outstation }}{% endif %}" placeholder="0">
+                    </td>
+                    <td>
+                      <input class="money" type="number" step="0.01" min="0"
+                             name="inc-{{ r.line.id }}-{{ forloop.counter }}-x"
+                             value="{% if m.other %}{{ m.other }}{% endif %}" placeholder="0">
+                    </td>
+                  {% endfor %}
+                  <td class="num" style="border-left:1px solid var(--border-soft);font-weight:700" data-row-total>
+                    {{ r.total|floatformat:2|intcomma }}
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-header" style="border-top:1px solid var(--border-soft);border-bottom:none">
+        <span class="small muted">Step 1 of 3</span>
+        <button type="button" class="btn btn-soft btn-sm" data-step-goto="expense">Next: Expenditure Register &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: EXPENDITURE -->
+  <div class="tab-panel" id="tab-expense">
+    <div class="panel panel-accent">
+      <div class="panel-header">
+        <div>
+          <h2>Monthly Expenditure Register</h2>
+          <div class="small muted">Enter each expense line by month and add payee / voucher notes where helpful.</div>
+        </div>
+        <div class="search-box" style="max-width:260px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Filter expenditure lines..." data-sheet-filter="#exp-sheet-table">
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table id="exp-sheet-table">
+          <thead>
+            <tr>
+              <th style="min-width:240px">Expenditure heading</th>
+              {% for mnum, mname in months %}
+                <th class="num">{{ mname }} ({{ CURRENCY }})</th>
+              {% endfor %}
+              <th class="num">Quarter Total ({{ CURRENCY }})</th>
+              <th style="min-width:180px">Payee / details / voucher</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for grp, rows in sheet.expense_groups.items %}
+              <tr class="group-row"><td colspan="6">{{ grp }}</td></tr>
+              {% for r in rows %}
+                <tr data-exp-line="{{ r.line.id }}" data-line-label="{{ grp }} {{ r.line.label }}">
+                  <td style="font-weight:500">{{ r.line.label }}</td>
+                  {% for m in r.months %}
+                    <td class="num">
+                      <input class="money" type="number" step="0.01" min="0"
+                             name="exp-{{ r.line.id }}-{{ forloop.counter }}-a"
+                             value="{% if m.amount %}{{ m.amount }}{% endif %}" placeholder="0">
+                    </td>
+                  {% endfor %}
+                  <td class="num" style="font-weight:700" data-row-total>{{ r.total|floatformat:2|intcomma }}</td>
+                  <td>
+                    <input type="text" name="exp-{{ r.line.id }}-1-n" value="{{ r.months.0.note }}"
+                           placeholder="Optional note / voucher" style="font-size:12px">
+                  </td>
+                </tr>
+              {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="panel-header" style="border-top:1px solid var(--border-soft);border-bottom:none">
+        <button type="button" class="btn btn-sm" data-step-goto="income">&larr; Back to Income</button>
+        <button type="button" class="btn btn-soft btn-sm" data-step-goto="summary">Next: Balance &amp; Submit &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: SUMMARY & SUBMIT -->
+  <div class="tab-panel" id="tab-summary">
+    <div class="grid-2">
+      <div class="panel panel-accent">
+        <div class="panel-header"><h2>Quarterly Balance Account</h2></div>
+        <div class="table-scroll">
+          <table>
+            <tr><td>Opening balance brought forward</td><td class="num">{{ CURRENCY }}{{ ret.opening_balance|floatformat:2|intcomma }}</td></tr>
+            <tr><td>Total income for the quarter</td><td class="num">{{ CURRENCY }}<span id="sum-income-2">{{ sheet.summary.total_income|floatformat:2|intcomma }}</span></td></tr>
+            <tr><td>Total expenditure for the quarter</td><td class="num">{{ CURRENCY }}<span id="sum-expense-2">{{ sheet.summary.total_expenditure|floatformat:2|intcomma }}</span></td></tr>
+            <tr class="total-row">
+              <td>Quarterly surplus / (deficit)</td>
+              <td class="num">{{ CURRENCY }}<span id="sum-surplus">{{ sheet.summary.surplus|floatformat:2|intcomma }}</span></td>
+            </tr>
+            <tr class="total-row">
+              <td>Closing balance carried forward</td>
+              <td class="num">{{ CURRENCY }}<span id="sum-closing">{{ sheet.summary.closing_balance|floatformat:2|intcomma }}</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel panel-accent">
+        <div class="panel-header"><h2>Sign-off &amp; Submission</h2></div>
+        <div class="panel-body">
+          <div class="form-row">
+            <label for="id_prepared_by">Prepared by (name)</label>
+            <input id="id_prepared_by" type="text" name="prepared_by" value="{{ ret.prepared_by }}" placeholder="e.g. Fr. ... / Parish Accountant">
+          </div>
+          <div class="form-row">
+            <label for="id_remarks">Remarks (optional)</label>
+            <textarea id="id_remarks" name="remarks" rows="3">{{ ret.remarks }}</textarea>
+          </div>
+
+          {% if may_submit %}
+            {% if can_submit_now %}
+              <div class="form-row" style="background:var(--rose-soft);border:1px solid var(--rose-border);padding:.85rem;border-radius:10px">
+                <label style="display:flex;gap:.55rem;align-items:flex-start;cursor:pointer;margin:0">
+                  <input type="checkbox" name="confirm" value="yes" style="width:auto;margin-top:3px">
+                  <span>I confirm that these figures are accurate and reconciled with parish cash/bank records. <strong>Once submitted, this return is locked and can only be reopened by the Chancery.</strong></span>
+                </label>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit" name="action" value="submit" data-loading-text="Submitting &amp; locking...">Submit &amp; Lock Return</button>
+            {% else %}
+              <p class="muted small">Submission opens on <strong>{{ period.end_date|date:"j F Y" }}</strong> (the end of the quarter). You can save drafts until then.</p>
+            {% endif %}
+          {% else %}
+            <p class="muted small">Only the Parish Priest / Administrator can submit this return. You can save your draft for them to review.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-bar">
+    <div class="small">
+      Income: <strong>{{ CURRENCY }}<span id="bar-income">{{ sheet.summary.total_income|floatformat:2|intcomma }}</span></strong> &middot;
+      Expenditure: <strong>{{ CURRENCY }}<span id="bar-expense">{{ sheet.summary.total_expenditure|floatformat:2|intcomma }}</span></strong> &middot;
+      Cathedraticum: <strong>{{ CURRENCY }}<span id="bar-levy">{{ sheet.summary.levy_due|floatformat:2|intcomma }}</span></strong>
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit" name="action" value="save" data-loading-text="Saving draft...">Save draft</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/return_form.js' %}"></script>
+{% endblock %}

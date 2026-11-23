@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign in – {{ DIOCESE_NAME }}{% endblock %}
+{% block shell %}
+<div class="auth-screen">
+  <aside class="auth-visual" style="background-image:url('{% static 'img/cathedral-hero.png' %}')">
+    <div class="auth-visual-inner">
+      <div class="auth-brand">
+        <img src="{% static 'img/archdiocese-emblem.png' %}" alt="Archdiocese Emblem">
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;color:#fff">{{ DIOCESE_NAME }}</div>
+          <div style="font-size:12px;color:rgba(251,191,36,0.9);letter-spacing:.05em;text-transform:uppercase">Chancery Finance Office</div>
+        </div>
+      </div>
+      <h1>Quarterly Parish Returns &amp; Cathedraticum Portal</h1>
+      <p>Streamlined monthly registers, verified quarterly submissions, and transparent Cathedraticum remittance across all deaneries and parishes.</p>
+
+      <ul class="auth-glass-list">
+        <li>
+          <span class="auth-glass-badge">&#10003;</span>
+          <span>Digital Pink Sheet with live monthly &amp; quarterly totals</span>
+        </li>
+        <li>
+          <span class="auth-glass-badge">25%</span>
+          <span>Automatic Cathedraticum &amp; carried-forward opening balance</span>
+        </li>
+        <li>
+          <span class="auth-glass-badge">&#128274;</span>
+          <span>Submitted reports lock automatically with full audit trail</span>
+        </li>
+      </ul>
+    </div>
+    <p class="small" style="position:relative;z-index:1;color:rgba(255,255,255,.65);margin:2rem 0 0">
+      Catholic Archdiocese of Ibadan &middot; Financial Administration
+    </p>
+  </aside>
+
+  <main class="auth-form-pane">
+    <div class="auth-card">
+      <h1 style="font-size:1.55rem;margin-bottom:.25rem">Welcome back</h1>
+      <p class="muted" style="margin:0 0 1.5rem">Sign in with your email address or username to continue.</p>
+
+      <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}<ul class="errorlist" style="margin-bottom:.9rem">{{ form.non_field_errors }}</ul>{% endif %}
+        <div class="form-row">
+          <label for="id_username">Email or username</label>
+          <input type="text" name="username" id="id_username" autofocus required
+                 value="{{ form.username.value|default:'' }}" placeholder="e.g. chancery@ibadanarchdiocese.org">
+        </div>
+        <div class="form-row">
+          <label for="id_password">Password</label>
+          <div class="input-wrap">
+            <input type="password" name="password" id="id_password" required placeholder="Enter your password">
+            <button type="button" class="pw-toggle" data-pw-toggle>Show</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" data-loading-text="Signing in..." style="margin-top:.65rem">
+          Sign in to portal
+        </button>
+      </form>
+
+      <div style="margin-top:1.35rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem">
+        <a class="small" href="{% url 'password_reset' %}">Forgot password?</a>
+        <a class="btn btn-soft btn-sm" href="{% url 'signup' %}">Create priest account</a>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
