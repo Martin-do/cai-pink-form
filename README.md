@@ -39,3 +39,9 @@ Copy into `.env` (or hosting dashboard):
 - `SITE_URL` — public base URL for email links
 - `EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend`
 - `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL`
+
+## Render deployment
+
+The Render Blueprint deploys PostgreSQL and imports the committed `initial_data.json` snapshot on startup only when the database has no parish records. It runs migrations first and skips the import on later starts, so future live records are preserved.
+
+The fixture is a snapshot of the local database at setup time. User accounts are included with their existing password hashes; change those passwords after deployment. Keep the fixture private because this repository is public.

@@ -1,0 +1,4946 @@
+[
+{
+  "model": "directory.deanery",
+  "pk": 1,
+  "fields": {
+    "name": "Oke Padi",
+    "order": 1
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 2,
+  "fields": {
+    "name": "Oluyole",
+    "order": 2
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 3,
+  "fields": {
+    "name": "Oke-Ado",
+    "order": 3
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 4,
+  "fields": {
+    "name": "Oke-Offa",
+    "order": 4
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 5,
+  "fields": {
+    "name": "Mokola",
+    "order": 5
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 6,
+  "fields": {
+    "name": "Bodija",
+    "order": 6
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 7,
+  "fields": {
+    "name": "Ikire",
+    "order": 7
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 8,
+  "fields": {
+    "name": "Igbo-Ora",
+    "order": 8
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 9,
+  "fields": {
+    "name": "Chaplaincy",
+    "order": 9
+  }
+},
+{
+  "model": "directory.deanery",
+  "pk": 10,
+  "fields": {
+    "name": "Institutions And Schools",
+    "order": 10
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 1,
+  "fields": {
+    "name": "St. Mary Cathedral, Oke Paadi",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 2,
+  "fields": {
+    "name": "St. Andrew Catholic Church, Oke Bola",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 3,
+  "fields": {
+    "name": "St. Michael Catholic Church, Yemetu",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 4,
+  "fields": {
+    "name": "St. Luke Chaplaincy, UCH",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 5,
+  "fields": {
+    "name": "St. Patrick Catholic Church, Basorun",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 6,
+  "fields": {
+    "name": "St. Jude Catholic Church, Iwo Road",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 7,
+  "fields": {
+    "name": "Divine Mercy Catholic Church, Monatan",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 8,
+  "fields": {
+    "name": "Holy Family Catholic Church, Yawiri",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 9,
+  "fields": {
+    "name": "St. James Catholic Church, Olorunda Aba",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 10,
+  "fields": {
+    "name": "St. Anthony Catholic Church, Ejioku",
+    "deanery": 1,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 11,
+  "fields": {
+    "name": "St. Kizito Catholic Church, Oluyole",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 12,
+  "fields": {
+    "name": "Christ the King Catholic Church, Odo Ona",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 13,
+  "fields": {
+    "name": "St. Charles Lwanga Catholic Church, Adeoyo",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 14,
+  "fields": {
+    "name": "St. Felix Catholic Church, Alaro",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 15,
+  "fields": {
+    "name": "St. Anthony Catholic Church, Ashipa",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "OMV",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 16,
+  "fields": {
+    "name": "St. Benedict Catholic Church, Oloruntumo",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 17,
+  "fields": {
+    "name": "Holy Trinity Catholic Church, Aba Panu",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 18,
+  "fields": {
+    "name": "St. Peter Catholic Church, Apata",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 19,
+  "fields": {
+    "name": "St. Lawrence Catholic Church, Lasokun",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 20,
+  "fields": {
+    "name": "St. Paul Catholic Church, Omi Adio",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 21,
+  "fields": {
+    "name": "Our Lady of Perpetual Help, Lade",
+    "deanery": 2,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 22,
+  "fields": {
+    "name": "St. Joseph Catholic Church, Oke Ado",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 23,
+  "fields": {
+    "name": "Our Lady Queen of Nigeria, Joyce B",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 24,
+  "fields": {
+    "name": "Sacred Heart, Gegelose",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 25,
+  "fields": {
+    "name": "St. Cecilia Catholic Church, Aiyegbusi",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "OSJ",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 26,
+  "fields": {
+    "name": "Good Shepherd Catholic Church, Felele",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 27,
+  "fields": {
+    "name": "Holy Rosary, Soka",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 28,
+  "fields": {
+    "name": "St. Leo Catholic Church, Challenge",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "SMA",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 29,
+  "fields": {
+    "name": "St. Benedict Catholic Church, Aba Oke",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "SMA",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 30,
+  "fields": {
+    "name": "St. Michael Catholic Church, Idi Ayunre",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 31,
+  "fields": {
+    "name": "Holy Family, Odo Ona",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 32,
+  "fields": {
+    "name": "St. Francis Catholic Church, Sanyo Soka",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 33,
+  "fields": {
+    "name": "St. Anne Catholic Church, Ogbere Tioya",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 34,
+  "fields": {
+    "name": "Our Lady of Fatima Catholic Church, Eleta",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 35,
+  "fields": {
+    "name": "St. Eunan Catholic Church, Odo-Oba",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 36,
+  "fields": {
+    "name": "Holy Cross, Ayegun (Capuchins)",
+    "deanery": 3,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "Capuchins",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 37,
+  "fields": {
+    "name": "St. Cyprian Catholic Church, Oke Offa",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 38,
+  "fields": {
+    "name": "St. Ignatius of Loyola Catholic Church, Loyola",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 39,
+  "fields": {
+    "name": "Our Lady Queen of Peace Catholic Church, Ogbere Oloba",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 40,
+  "fields": {
+    "name": "St. John Catholic Church, Airport",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 41,
+  "fields": {
+    "name": "Our Lady of Grace Catholic Church, POAT",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "CMF",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 42,
+  "fields": {
+    "name": "St. Mulumba Catholic Church, Alakia",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "CSsR",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 43,
+  "fields": {
+    "name": "Maria Assumpta Catholic Church, Olubadan",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 44,
+  "fields": {
+    "name": "St. Mary Catholic Church, Egbeda",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 45,
+  "fields": {
+    "name": "St. Augustine Catholic Church, Olode",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 46,
+  "fields": {
+    "name": "St. Dominic Catholic Church, Ogungbade",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 47,
+  "fields": {
+    "name": "St. Brendan Catholic Church, Ikumapayi",
+    "deanery": 4,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 48,
+  "fields": {
+    "name": "St. Gabriel Catholic Church, Mokola",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 49,
+  "fields": {
+    "name": "St. Richard Catholic Church, Jericho",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 50,
+  "fields": {
+    "name": "St. Christopher Catholic Church, Sango",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "OP",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 51,
+  "fields": {
+    "name": "St. Rita Catholic Church, Arometa",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 52,
+  "fields": {
+    "name": "Mater Dei Catholic Church, Gbopa",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 53,
+  "fields": {
+    "name": "St. Theresa Catholic Church, Awotan",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 54,
+  "fields": {
+    "name": "St. Monica Catholic Church, Ologuneru",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 55,
+  "fields": {
+    "name": "St. Agnes Catholic Church, Apete",
+    "deanery": 5,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 56,
+  "fields": {
+    "name": "Church of the Ascension Catholic Church, Bodija",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 57,
+  "fields": {
+    "name": "Our Lady Seat of Wisdom Catholic Church, UI",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 58,
+  "fields": {
+    "name": "Sacred Heart Catholic Church, Ilupeju",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 59,
+  "fields": {
+    "name": "St. Augustine Catholic Church, Ojoo",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 60,
+  "fields": {
+    "name": "St. Martin De Porres Catholic Church, Ajobo",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 61,
+  "fields": {
+    "name": "St. Gregory Catholic Church, Moniya",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 62,
+  "fields": {
+    "name": "St. Anne Catholic Church, Sasa",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 63,
+  "fields": {
+    "name": "St. Thomas Catholic Church, Agbowo",
+    "deanery": 6,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 64,
+  "fields": {
+    "name": "Holy Cross Catholic Church, Ikire",
+    "deanery": 7,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 65,
+  "fields": {
+    "name": "St. Matthew Catholic Church, Ode Omu",
+    "deanery": 7,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 66,
+  "fields": {
+    "name": "St. Anthony Catholic Church, Gbogan",
+    "deanery": 7,
+    "kind": "parish",
+    "run_by_religious": true,
+    "religious_congregation": "SDV",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 67,
+  "fields": {
+    "name": "St. Joseph Catholic Church, Apomu",
+    "deanery": 7,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 68,
+  "fields": {
+    "name": "St. Anthony Catholic Church, Iwo",
+    "deanery": 7,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 69,
+  "fields": {
+    "name": "St. Anthony Catholic Church, Igbo Ora",
+    "deanery": 8,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 70,
+  "fields": {
+    "name": "St. Anne Catholic Church, Igangan",
+    "deanery": 8,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 71,
+  "fields": {
+    "name": "St. Rita Catholic Church, Olowu",
+    "deanery": 8,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 72,
+  "fields": {
+    "name": "St. Mary Catholic Church, Eruwa",
+    "deanery": 8,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 73,
+  "fields": {
+    "name": "St. Anne Catholic Church, Ido",
+    "deanery": 8,
+    "kind": "parish",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 74,
+  "fields": {
+    "name": "Army Chaplaincy, Odogbo",
+    "deanery": 9,
+    "kind": "chaplaincy",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 75,
+  "fields": {
+    "name": "Army chaplaincy, Mokola",
+    "deanery": 9,
+    "kind": "chaplaincy",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 76,
+  "fields": {
+    "name": "Our Lady Of Fatima, Iwo",
+    "deanery": 10,
+    "kind": "institution",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 77,
+  "fields": {
+    "name": "Sacred Heart, Akinyemi",
+    "deanery": 10,
+    "kind": "institution",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 78,
+  "fields": {
+    "name": "St Albert, Jembewon",
+    "deanery": 10,
+    "kind": "institution",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 79,
+  "fields": {
+    "name": "OFFERCentre, Oluponna",
+    "deanery": 10,
+    "kind": "institution",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.parish",
+  "pk": 80,
+  "fields": {
+    "name": "Minor Seminary",
+    "deanery": 10,
+    "kind": "institution",
+    "run_by_religious": false,
+    "religious_congregation": "",
+    "submits_returns": true,
+    "email": "",
+    "phone": "",
+    "active": true
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 1,
+  "fields": {
+    "priest": 1,
+    "parish": 1,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 2,
+  "fields": {
+    "priest": 2,
+    "parish": 1,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 3,
+  "fields": {
+    "priest": 3,
+    "parish": 2,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 4,
+  "fields": {
+    "priest": 4,
+    "parish": 3,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 5,
+  "fields": {
+    "priest": 5,
+    "parish": 4,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 6,
+  "fields": {
+    "priest": 6,
+    "parish": 5,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 7,
+  "fields": {
+    "priest": 7,
+    "parish": 6,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 8,
+  "fields": {
+    "priest": 8,
+    "parish": 7,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 9,
+  "fields": {
+    "priest": 9,
+    "parish": 8,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 10,
+  "fields": {
+    "priest": 10,
+    "parish": 9,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 11,
+  "fields": {
+    "priest": 11,
+    "parish": 10,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 12,
+  "fields": {
+    "priest": 12,
+    "parish": 11,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 13,
+  "fields": {
+    "priest": 13,
+    "parish": 12,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 14,
+  "fields": {
+    "priest": 14,
+    "parish": 13,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 15,
+  "fields": {
+    "priest": 15,
+    "parish": 14,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 16,
+  "fields": {
+    "priest": 16,
+    "parish": 15,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 17,
+  "fields": {
+    "priest": 17,
+    "parish": 16,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 18,
+  "fields": {
+    "priest": 18,
+    "parish": 17,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 19,
+  "fields": {
+    "priest": 19,
+    "parish": 18,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 20,
+  "fields": {
+    "priest": 20,
+    "parish": 18,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 21,
+  "fields": {
+    "priest": 21,
+    "parish": 19,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 22,
+  "fields": {
+    "priest": 22,
+    "parish": 20,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 23,
+  "fields": {
+    "priest": 23,
+    "parish": 21,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 24,
+  "fields": {
+    "priest": 24,
+    "parish": 22,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 25,
+  "fields": {
+    "priest": 25,
+    "parish": 22,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 26,
+  "fields": {
+    "priest": 26,
+    "parish": 23,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 27,
+  "fields": {
+    "priest": 27,
+    "parish": 24,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 28,
+  "fields": {
+    "priest": 28,
+    "parish": 25,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 29,
+  "fields": {
+    "priest": 29,
+    "parish": 25,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 30,
+  "fields": {
+    "priest": 30,
+    "parish": 26,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 31,
+  "fields": {
+    "priest": 31,
+    "parish": 27,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 32,
+  "fields": {
+    "priest": 32,
+    "parish": 28,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 33,
+  "fields": {
+    "priest": 33,
+    "parish": 29,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 34,
+  "fields": {
+    "priest": 34,
+    "parish": 30,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 35,
+  "fields": {
+    "priest": 35,
+    "parish": 31,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 36,
+  "fields": {
+    "priest": 36,
+    "parish": 32,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 37,
+  "fields": {
+    "priest": 37,
+    "parish": 33,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 38,
+  "fields": {
+    "priest": 38,
+    "parish": 34,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 39,
+  "fields": {
+    "priest": 39,
+    "parish": 34,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 40,
+  "fields": {
+    "priest": 40,
+    "parish": 37,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 41,
+  "fields": {
+    "priest": 41,
+    "parish": 37,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 42,
+  "fields": {
+    "priest": 42,
+    "parish": 38,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 43,
+  "fields": {
+    "priest": 43,
+    "parish": 38,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 44,
+  "fields": {
+    "priest": 44,
+    "parish": 39,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 45,
+  "fields": {
+    "priest": 45,
+    "parish": 40,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 46,
+  "fields": {
+    "priest": 46,
+    "parish": 41,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 47,
+  "fields": {
+    "priest": 47,
+    "parish": 42,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 48,
+  "fields": {
+    "priest": 48,
+    "parish": 42,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 49,
+  "fields": {
+    "priest": 49,
+    "parish": 43,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 50,
+  "fields": {
+    "priest": 50,
+    "parish": 44,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 51,
+  "fields": {
+    "priest": 51,
+    "parish": 45,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 52,
+  "fields": {
+    "priest": 52,
+    "parish": 46,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 53,
+  "fields": {
+    "priest": 53,
+    "parish": 47,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 54,
+  "fields": {
+    "priest": 54,
+    "parish": 48,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 55,
+  "fields": {
+    "priest": 55,
+    "parish": 48,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 56,
+  "fields": {
+    "priest": 56,
+    "parish": 49,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 57,
+  "fields": {
+    "priest": 57,
+    "parish": 50,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 58,
+  "fields": {
+    "priest": 58,
+    "parish": 51,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 59,
+  "fields": {
+    "priest": 59,
+    "parish": 51,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 60,
+  "fields": {
+    "priest": 60,
+    "parish": 52,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 61,
+  "fields": {
+    "priest": 61,
+    "parish": 53,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 62,
+  "fields": {
+    "priest": 62,
+    "parish": 54,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 63,
+  "fields": {
+    "priest": 63,
+    "parish": 55,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 64,
+  "fields": {
+    "priest": 64,
+    "parish": 55,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 65,
+  "fields": {
+    "priest": 65,
+    "parish": 55,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 66,
+  "fields": {
+    "priest": 66,
+    "parish": 56,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 67,
+  "fields": {
+    "priest": 67,
+    "parish": 56,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 68,
+  "fields": {
+    "priest": 68,
+    "parish": 57,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 69,
+  "fields": {
+    "priest": 69,
+    "parish": 57,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 70,
+  "fields": {
+    "priest": 70,
+    "parish": 58,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 71,
+  "fields": {
+    "priest": 71,
+    "parish": 59,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 72,
+  "fields": {
+    "priest": 72,
+    "parish": 60,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 73,
+  "fields": {
+    "priest": 73,
+    "parish": 61,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 74,
+  "fields": {
+    "priest": 74,
+    "parish": 62,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 75,
+  "fields": {
+    "priest": 75,
+    "parish": 63,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 76,
+  "fields": {
+    "priest": 76,
+    "parish": 63,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 77,
+  "fields": {
+    "priest": 77,
+    "parish": 64,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 78,
+  "fields": {
+    "priest": 78,
+    "parish": 64,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 79,
+  "fields": {
+    "priest": 79,
+    "parish": 65,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 80,
+  "fields": {
+    "priest": 80,
+    "parish": 66,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 81,
+  "fields": {
+    "priest": 81,
+    "parish": 67,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 82,
+  "fields": {
+    "priest": 82,
+    "parish": 68,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 83,
+  "fields": {
+    "priest": 83,
+    "parish": 68,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 84,
+  "fields": {
+    "priest": 84,
+    "parish": 69,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 85,
+  "fields": {
+    "priest": 85,
+    "parish": 70,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 86,
+  "fields": {
+    "priest": 86,
+    "parish": 71,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 87,
+  "fields": {
+    "priest": 87,
+    "parish": 72,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 88,
+  "fields": {
+    "priest": 88,
+    "parish": 72,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 89,
+  "fields": {
+    "priest": 89,
+    "parish": 73,
+    "role": "pp",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 90,
+  "fields": {
+    "priest": 90,
+    "parish": 74,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 91,
+  "fields": {
+    "priest": 91,
+    "parish": 75,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 92,
+  "fields": {
+    "priest": 92,
+    "parish": 76,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 93,
+  "fields": {
+    "priest": 93,
+    "parish": 77,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 94,
+  "fields": {
+    "priest": 94,
+    "parish": 78,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 95,
+  "fields": {
+    "priest": 95,
+    "parish": 79,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 96,
+  "fields": {
+    "priest": 96,
+    "parish": 80,
+    "role": "admin",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "directory.assignment",
+  "pk": 97,
+  "fields": {
+    "priest": 97,
+    "parish": 80,
+    "role": "asst",
+    "start_date": "2026-08-26",
+    "end_date": null,
+    "note": "Imported from priests list"
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 1,
+  "fields": {
+    "code": "I01",
+    "kind": "income",
+    "group": "From the Chancery",
+    "label": "From the Chancery",
+    "order": 1,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 2,
+  "fields": {
+    "code": "I02",
+    "kind": "income",
+    "group": "Church Collections",
+    "label": "C.C. Central",
+    "order": 2,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 3,
+  "fields": {
+    "code": "I03",
+    "kind": "income",
+    "group": "Church Collections",
+    "label": "C.C. Outstation",
+    "order": 3,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 4,
+  "fields": {
+    "code": "I04",
+    "kind": "income",
+    "group": "Church Collections",
+    "label": "Y.C. Central",
+    "order": 4,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 5,
+  "fields": {
+    "code": "I05",
+    "kind": "income",
+    "group": "Church Collections",
+    "label": "Y.C. Outstation",
+    "order": 5,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 6,
+  "fields": {
+    "code": "I06",
+    "kind": "income",
+    "group": "Thanksgiving",
+    "label": "Thanksgiving: Central",
+    "order": 6,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 7,
+  "fields": {
+    "code": "I07",
+    "kind": "income",
+    "group": "Thanksgiving",
+    "label": "Thanksgiving: Outstation",
+    "order": 7,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 8,
+  "fields": {
+    "code": "I08",
+    "kind": "income",
+    "group": "Tithes",
+    "label": "Tithes: Central",
+    "order": 8,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 9,
+  "fields": {
+    "code": "I09",
+    "kind": "income",
+    "group": "Tithes",
+    "label": "Tithes: Outstation",
+    "order": 9,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 10,
+  "fields": {
+    "code": "I10",
+    "kind": "income",
+    "group": "Harvest",
+    "label": "Harvest: Central Adults",
+    "order": 10,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 11,
+  "fields": {
+    "code": "I11",
+    "kind": "income",
+    "group": "Harvest",
+    "label": "Harvest: Central Children",
+    "order": 11,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 12,
+  "fields": {
+    "code": "I12",
+    "kind": "income",
+    "group": "Harvest",
+    "label": "Harvest: Outstation Adults",
+    "order": 12,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 13,
+  "fields": {
+    "code": "I13",
+    "kind": "income",
+    "group": "Harvest",
+    "label": "Harvest: Institutions",
+    "order": 13,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 14,
+  "fields": {
+    "code": "I14",
+    "kind": "income",
+    "group": "Mass Stipends",
+    "label": "Mass Stipends (number of Masses / details)",
+    "order": 14,
+    "is_levyable": true,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 15,
+  "fields": {
+    "code": "I15",
+    "kind": "income",
+    "group": "Stole Fees",
+    "label": "Baptisms",
+    "order": 15,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 16,
+  "fields": {
+    "code": "I16",
+    "kind": "income",
+    "group": "Stole Fees",
+    "label": "Confirmations",
+    "order": 16,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 17,
+  "fields": {
+    "code": "I17",
+    "kind": "income",
+    "group": "Stole Fees",
+    "label": "First Holy Communion",
+    "order": 17,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 18,
+  "fields": {
+    "code": "I18",
+    "kind": "income",
+    "group": "Stole Fees",
+    "label": "Marriages",
+    "order": 18,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 19,
+  "fields": {
+    "code": "I19",
+    "kind": "income",
+    "group": "Stole Fees",
+    "label": "Funerals",
+    "order": 19,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 20,
+  "fields": {
+    "code": "I20",
+    "kind": "income",
+    "group": "Renewal of Forms",
+    "label": "Renewal of Forms",
+    "order": 20,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 21,
+  "fields": {
+    "code": "I21",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "Lay Apostolate",
+    "order": 21,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 22,
+  "fields": {
+    "code": "I22",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "SECM",
+    "order": 22,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 23,
+  "fields": {
+    "code": "I23",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "Youth Day",
+    "order": 23,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 24,
+  "fields": {
+    "code": "I24",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "SAPP",
+    "order": 24,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 25,
+  "fields": {
+    "code": "I25",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "Bible Sunday",
+    "order": 25,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 26,
+  "fields": {
+    "code": "I26",
+    "kind": "income",
+    "group": "Mandatory Collections",
+    "label": "Other (specify)",
+    "order": 26,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 27,
+  "fields": {
+    "code": "I27",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Bookshop",
+    "order": 27,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 28,
+  "fields": {
+    "code": "I28",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Independent",
+    "order": 28,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 29,
+  "fields": {
+    "code": "I29",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Bulletin",
+    "order": 29,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 30,
+  "fields": {
+    "code": "I30",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Poultry / Farm",
+    "order": 30,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 31,
+  "fields": {
+    "code": "I31",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Hall",
+    "order": 31,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 32,
+  "fields": {
+    "code": "I32",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "School",
+    "order": 32,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 33,
+  "fields": {
+    "code": "I33",
+    "kind": "income",
+    "group": "Parish / Mission Projects",
+    "label": "Other",
+    "order": 33,
+    "is_levyable": true,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 34,
+  "fields": {
+    "code": "I34",
+    "kind": "income",
+    "group": "Donations",
+    "label": "Donations",
+    "order": 34,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 35,
+  "fields": {
+    "code": "I35",
+    "kind": "income",
+    "group": "Other Income",
+    "label": "Other income (specify)",
+    "order": 35,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 36,
+  "fields": {
+    "code": "I36",
+    "kind": "income",
+    "group": "Archdiocesan / Parish Organisations",
+    "label": "C.W.O.",
+    "order": 36,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 37,
+  "fields": {
+    "code": "I37",
+    "kind": "income",
+    "group": "Archdiocesan / Parish Organisations",
+    "label": "Parish Council",
+    "order": 37,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 38,
+  "fields": {
+    "code": "I38",
+    "kind": "income",
+    "group": "Archdiocesan / Parish Organisations",
+    "label": "Youth",
+    "order": 38,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 39,
+  "fields": {
+    "code": "I39",
+    "kind": "income",
+    "group": "Archdiocesan / Parish Organisations",
+    "label": "Other",
+    "order": 39,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 40,
+  "fields": {
+    "code": "I40",
+    "kind": "income",
+    "group": "Transit",
+    "label": "Transit / other receipts (specify)",
+    "order": 40,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 41,
+  "fields": {
+    "code": "E01",
+    "kind": "expense",
+    "group": "Parish Account",
+    "label": "Cult / Pastoral Aids",
+    "order": 1,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 42,
+  "fields": {
+    "code": "E02",
+    "kind": "expense",
+    "group": "Parish Account",
+    "label": "Maintenance / Repairs",
+    "order": 2,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 43,
+  "fields": {
+    "code": "E03",
+    "kind": "expense",
+    "group": "Parish Account",
+    "label": "New Church Building (specify)",
+    "order": 3,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 44,
+  "fields": {
+    "code": "E04",
+    "kind": "expense",
+    "group": "Parish Account",
+    "label": "Insurance",
+    "order": 4,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 45,
+  "fields": {
+    "code": "E05",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "Maintenance / Repairs",
+    "order": 5,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 46,
+  "fields": {
+    "code": "E06",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "NEPA / Generator / Light",
+    "order": 6,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 47,
+  "fields": {
+    "code": "E07",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "Gas",
+    "order": 7,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 48,
+  "fields": {
+    "code": "E08",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "Water",
+    "order": 8,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 49,
+  "fields": {
+    "code": "E09",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "Telephone / Feeding / Communication",
+    "order": 9,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 50,
+  "fields": {
+    "code": "E10",
+    "kind": "expense",
+    "group": "Church Account",
+    "label": "Insurance of the House",
+    "order": 10,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 51,
+  "fields": {
+    "code": "E11",
+    "kind": "expense",
+    "group": "Priests' Maintenance",
+    "label": "Personal Allowance",
+    "order": 11,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 52,
+  "fields": {
+    "code": "E12",
+    "kind": "expense",
+    "group": "Priests' Maintenance",
+    "label": "Annual Leave Allowance (Diocesan Priests)",
+    "order": 12,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 53,
+  "fields": {
+    "code": "E13",
+    "kind": "expense",
+    "group": "Priests' Maintenance",
+    "label": "Vehicle Allowance",
+    "order": 13,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 54,
+  "fields": {
+    "code": "E14",
+    "kind": "expense",
+    "group": "Priests' Maintenance",
+    "label": "Annual Retreat / Conference",
+    "order": 14,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 55,
+  "fields": {
+    "code": "E15",
+    "kind": "expense",
+    "group": "Priests' Maintenance",
+    "label": "Seminars / Other",
+    "order": 15,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 56,
+  "fields": {
+    "code": "E16",
+    "kind": "expense",
+    "group": "Staff",
+    "label": "Catechists' Allocation",
+    "order": 16,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 57,
+  "fields": {
+    "code": "E17",
+    "kind": "expense",
+    "group": "Staff",
+    "label": "Domestic Staff",
+    "order": 17,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 58,
+  "fields": {
+    "code": "E18",
+    "kind": "expense",
+    "group": "Staff",
+    "label": "Seminarians' Allocation",
+    "order": 18,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 59,
+  "fields": {
+    "code": "E19",
+    "kind": "expense",
+    "group": "Staff",
+    "label": "Others (specify)",
+    "order": 19,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 60,
+  "fields": {
+    "code": "E20",
+    "kind": "expense",
+    "group": "Office",
+    "label": "Office / Stationery / Library",
+    "order": 20,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 61,
+  "fields": {
+    "code": "E21",
+    "kind": "expense",
+    "group": "Vehicles",
+    "label": "Maintenance / Repairs",
+    "order": 21,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 62,
+  "fields": {
+    "code": "E22",
+    "kind": "expense",
+    "group": "Remittances",
+    "label": "Chancery Remittances",
+    "order": 22,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 63,
+  "fields": {
+    "code": "E23",
+    "kind": "expense",
+    "group": "Remittances",
+    "label": "Cathedraticum",
+    "order": 23,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 64,
+  "fields": {
+    "code": "E24",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "Lay Apostolate",
+    "order": 24,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 65,
+  "fields": {
+    "code": "E25",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "SECM",
+    "order": 25,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 66,
+  "fields": {
+    "code": "E26",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "Youth Day",
+    "order": 26,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 67,
+  "fields": {
+    "code": "E27",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "SAPP",
+    "order": 27,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 68,
+  "fields": {
+    "code": "E28",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "Bible Sunday",
+    "order": 28,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 69,
+  "fields": {
+    "code": "E29",
+    "kind": "expense",
+    "group": "Mandatory Collections Remitted",
+    "label": "Other",
+    "order": 29,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 70,
+  "fields": {
+    "code": "E30",
+    "kind": "expense",
+    "group": "Stipends & Stole Fees",
+    "label": "Stipends (specify number / details)",
+    "order": 30,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 71,
+  "fields": {
+    "code": "E31",
+    "kind": "expense",
+    "group": "Stipends & Stole Fees",
+    "label": "Stole Fees remitted (specify)",
+    "order": 31,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 72,
+  "fields": {
+    "code": "E32",
+    "kind": "expense",
+    "group": "Archdiocesan / Parish Organisations",
+    "label": "Organisations (specify)",
+    "order": 32,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 73,
+  "fields": {
+    "code": "E33",
+    "kind": "expense",
+    "group": "Others",
+    "label": "Building / Projects",
+    "order": 33,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 74,
+  "fields": {
+    "code": "E34",
+    "kind": "expense",
+    "group": "Others",
+    "label": "Approved Charities (as approved in budget)",
+    "order": 34,
+    "is_levyable": false,
+    "needs_detail": false,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 75,
+  "fields": {
+    "code": "E35",
+    "kind": "expense",
+    "group": "Others",
+    "label": "Transit (specify)",
+    "order": 35,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.lineitem",
+  "pk": 76,
+  "fields": {
+    "code": "E36",
+    "kind": "expense",
+    "group": "Others",
+    "label": "Miscellaneous (specify)",
+    "order": 36,
+    "is_levyable": false,
+    "needs_detail": true,
+    "active": true
+  }
+},
+{
+  "model": "returns.reportingperiod",
+  "pk": 1,
+  "fields": {
+    "year": 2026,
+    "quarter": 1,
+    "due_date": "2026-04-30",
+    "levy_rate": "0.2500",
+    "is_open": true
+  }
+},
+{
+  "model": "returns.reportingperiod",
+  "pk": 2,
+  "fields": {
+    "year": 2026,
+    "quarter": 2,
+    "due_date": "2026-07-30",
+    "levy_rate": "0.2500",
+    "is_open": true
+  }
+},
+{
+  "model": "returns.reportingperiod",
+  "pk": 3,
+  "fields": {
+    "year": 2026,
+    "quarter": 3,
+    "due_date": "2026-10-30",
+    "levy_rate": "0.2500",
+    "is_open": true
+  }
+},
+{
+  "model": "returns.reportingperiod",
+  "pk": 4,
+  "fields": {
+    "year": 2026,
+    "quarter": 4,
+    "due_date": "2027-01-30",
+    "levy_rate": "0.2500",
+    "is_open": true
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$U3BXLdL0bUfgFhxsGE0Pgs$6xh9EV3AAPKjfHnqfOmqw2iz21O42i4OPtqY6utTSpw=",
+    "last_login": "2026-11-23T05:38:25.095Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-20T19:10:11.990Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$wyHZzBBp3gKXIemV9Evi4r$03umZupeLgMrZgffvI+DZRZhWJ8f7Jh03Ga0E45M+6I=",
+    "last_login": "2026-11-23T11:47:27.284Z",
+    "is_superuser": true,
+    "username": "chancery",
+    "first_name": "",
+    "last_name": "",
+    "email": "chancery@ibadanarchdiocese.org",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-20T19:15:05.216Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$lkGELL2WWxrg5AadYnSuzm$B8H4xSGGfUQgMhmIs4wlwqZWUgpjVe4TlNKVMEL/i8s=",
+    "last_login": "2026-11-23T11:29:35.749Z",
+    "is_superuser": false,
+    "username": "martinjaiyeola40@gmail.com",
+    "first_name": "Martin",
+    "last_name": "Jaiyeola",
+    "email": "martinjaiyeola40@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-23T11:08:52.355Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 1,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Julius Akinyode",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 2,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Anthony Fasakin",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 3,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Augustine Nwajagu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 4,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Charles Onyema",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 5,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix Akinyode",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 6,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Ekene Ugwoegbu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 7,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Richard Omolade",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 8,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Joachim Akee",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 9,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Francis Omoade",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 10,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Joseph Akerele",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 11,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Cyprian Nnamdi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 12,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Gregory Oyelami",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 13,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Emmanuel Ajewole",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 14,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Peter Popoola",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 15,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Henry Molade",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 16,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Isaac Abu",
+    "congregation": "OMV",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 17,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Johnson Iwuala",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 18,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Stephen Udechukwu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 19,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Francis Adedigba",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 20,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Raphael Agbeje",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 21,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Peter Ibimiluyi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 22,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Paul Anigboro",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 23,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix Etapemi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 24,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Benedict Ugwoegbu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 25,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Paul Afolabi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 26,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Clement Emerue",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 27,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Christopher Areoye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 28,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Leo Ukwuani",
+    "congregation": "OSJ",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 29,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Simon Madu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 30,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Darlington Agubosim",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 31,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Sylvester Odugbemi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 32,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Charles Acheneje",
+    "congregation": "SMA",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 33,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Johnson Ugwu",
+    "congregation": "SMA",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 34,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Matthew Oniseitan",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 35,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Bernard Azeez",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 36,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Jude Adeyemo",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 37,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Stephen Balogun",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 38,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix Adedigba",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 39,
+  "fields": {
+    "title": "Msgr.",
+    "full_name": "Peter Otubusi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 40,
+  "fields": {
+    "title": "Msgr.",
+    "full_name": "Theophilus Fadeyi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 41,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Matthew Olarinde",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 42,
+  "fields": {
+    "title": "Msgr.",
+    "full_name": "J.K. Idowu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 43,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Emmanuel Ogboli",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 44,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Gabriel Azeez",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 45,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Patrick Odediran",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 46,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Edward Kwagshtule",
+    "congregation": "CMF",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 47,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Vincent Oko",
+    "congregation": "CSsR",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 48,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Henry Ogbonna",
+    "congregation": "CSsR",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 49,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Vincent Anuniru",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 50,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Edward Olojede",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 51,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Norbert Okpara",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 52,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Michael Olayemi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 53,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Paul Akintayo",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 54,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Emmanuel Eseola",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 55,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Johnpaul Aninwodo",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 56,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Paul Asawale",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 57,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Abiodun Ademoye",
+    "congregation": "OP",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 58,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix-Kingsley Obialor",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 59,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Julius Sangokeye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 60,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Martin Olowoyeye",
+    "congregation": "",
+    "phone": "08130597795",
+    "email": "martinjaiyeola40@gmail.com",
+    "user": [
+      "martinjaiyeola40@gmail.com"
+    ],
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 61,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Claudius Uwaoma",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 62,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Charles Ajibaye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 63,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Augustine Taiwo",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 64,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Daniel Izebuno",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 65,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Gabriel Udoh",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 66,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Francis Awotoye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 67,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Peter Fadoyin",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 68,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Anthony Omolade",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 69,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Peter Jemibor",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 70,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Joseph Akinbinu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 71,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix Kiboba",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 72,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Christopher Olupooye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 73,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Anthony Ogunyale",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 74,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Peter Ajeigbe",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 75,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Aime Lasaga",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 76,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Julian Kasiya",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 77,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Michael Adebola",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 78,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Joseph Baranjoko",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 79,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Richard Olofingboyegun",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 80,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Anthony Iduma",
+    "congregation": "SDV",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 81,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Philip Eegunjobi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 82,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Johnpaul Nnajiofor",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 83,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "James Adeleke",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 84,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "John Ademoye",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 85,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Callistus Afolabi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 86,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Victor Ugbor",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 87,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Vincent Alabi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 88,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Emmanuel Ajani",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 89,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Francis Oyetunji",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 90,
+  "fields": {
+    "title": "Col.",
+    "full_name": "C.C. Nwankpa",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 91,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Barnabas Atoyebi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 92,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Samuel Fredrick",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 93,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Michael Domingo",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 94,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Lawrence Nwachukwu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 95,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Christopher Ojikutu",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 96,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Felix Emerue",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.priest",
+  "pk": 97,
+  "fields": {
+    "title": "Fr.",
+    "full_name": "Emmanuel Adebisi",
+    "congregation": "",
+    "phone": "",
+    "email": "",
+    "user": null,
+    "active": true
+  }
+},
+{
+  "model": "directory.accountprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "martinjaiyeola40@gmail.com"
+    ],
+    "phone": "08130597795",
+    "name_as_listed": "Martin Jaiyeola",
+    "claimed_parish": 26,
+    "status": "approved",
+    "reviewed_by": [
+      "chancery"
+    ],
+    "reviewed_at": "2026-11-23T11:29:19.634Z",
+    "review_note": "",
+    "created_at": "2026-11-23T11:08:53.783Z"
+  }
+},
+{
+  "model": "returns.quarterlyreturn",
+  "pk": 1,
+  "fields": {
+    "parish": 52,
+    "period": 1,
+    "status": "draft",
+    "opening_balance": "0.00",
+    "opening_balance_carried": false,
+    "prepared_by": "",
+    "remarks": "",
+    "created_by": [
+      "martinjaiyeola40@gmail.com"
+    ],
+    "created_at": "2026-11-23T11:30:00.204Z",
+    "updated_at": "2026-11-23T11:43:58.067Z",
+    "submitted_by": null,
+    "submitted_at": null,
+    "accepted_by": null,
+    "accepted_at": null,
+    "total_income": "0.00",
+    "total_expenditure": "0.00",
+    "closing_balance": "0.00",
+    "levyable_income": "0.00",
+    "levy_rate": "0.2500",
+    "levy_due": "0.00",
+    "waiver_type": "none",
+    "waiver_value": "0.00",
+    "waiver_reason": "",
+    "waived_by": null,
+    "waived_at": null
+  }
+},
+{
+  "model": "returns.auditlog",
+  "pk": 1,
+  "fields": {
+    "ret": null,
+    "actor": [
+      "chancery"
+    ],
+    "action": "account_approved",
+    "detail": "martinjaiyeola40@gmail.com linked to Fr. Martin Olowoyeye",
+    "created_at": "2026-11-23T11:29:19.633Z"
+  }
+},
+{
+  "model": "returns.auditlog",
+  "pk": 2,
+  "fields": {
+    "ret": 1,
+    "actor": [
+      "martinjaiyeola40@gmail.com"
+    ],
+    "action": "created",
+    "detail": "Draft return started",
+    "created_at": "2026-11-23T11:30:00.218Z"
+  }
+}
+]
