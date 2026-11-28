@@ -24,7 +24,9 @@
   {% with url_name=request.resolver_match.url_name|default:"" %}
   <aside class="sidebar no-print" aria-label="Primary navigation">
     <a href="{% url 'home' %}" class="sidebar-brand">
-      <img src="{% static 'img/archdiocese-emblem.png' %}" alt="Archdiocese Emblem" class="sidebar-emblem">
+      <span class="sidebar-logo-plaque">
+        <img src="{% static 'img/logos-combined.png' %}" alt="Archdiocese and Archbishop Emblems" class="sidebar-emblem">
+      </span>
       <div class="sidebar-brand-text">
         <span class="sidebar-brand-title">{{ DIOCESE_NAME }}</span>
         <span class="sidebar-brand-sub">Parish Returns Portal</span>

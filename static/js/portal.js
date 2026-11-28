@@ -104,4 +104,16 @@
       setTimeout(function () { toast.remove(); }, 360);
     }, 6000);
   });
+
+  // 6. Auth background slideshow (auto-activates when 2+ slides are present)
+  document.querySelectorAll("[data-auth-slideshow]").forEach(function (wrap) {
+    const slides = wrap.querySelectorAll(".auth-slide");
+    if (slides.length < 2) return;
+    let idx = 0;
+    setInterval(function () {
+      slides[idx].classList.remove("active");
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add("active");
+    }, 8000);
+  });
 })();

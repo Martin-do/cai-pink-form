@@ -12,17 +12,18 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if Parish.objects.exists():
             self.stdout.write("Initial parish data already exists; skipping fixture load.")
-            return
+        else:
+            fixture = Path(settings.BASE_DIR) / "initial_data.json"
+            if not fixture.is_file():
+                self.stderr.write(self.style.ERROR(f"Initial data fixture not found: {fixture}"))
+                return
 
-        fixture = Path(settings.BASE_DIR) / "initial_data.json"
-        if not fixture.is_file():
-            self.stderr.write(self.style.ERROR(f"Initial data fixture not found: {fixture}"))
-            return
-
-        call_command("loaddata", str(fixture), verbosity=0)
-        self.stdout.write(
-            self.style.SUCCESS(
-                f"Loaded initial data: {Parish.objects.count()} parishes, "
-                f"{Priest.objects.count()} priests."
+            call_command("loaddata", str(fixture), verbosity=0)
+            self.stdout.write(
+                self.style.SUCCESS(
+                    f"Loaded initial data: {Parish.objects.count()} parishes, "
+                    f"{Priest.objects.count()} priests."
+                )
             )
-        )
+
+        call_command("load_pink_sheet", verbosity=0)
